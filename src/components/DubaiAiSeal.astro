@@ -489,9 +489,9 @@
         }
     };
 
-    if (document.readyState === "complete") {
-        initSealAnimation();
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initSealAnimation);
     } else {
-        window.addEventListener("load", initSealAnimation);
+        initSealAnimation();
     }
 </script>
