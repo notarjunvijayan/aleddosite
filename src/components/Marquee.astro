@@ -1,0 +1,88 @@
+---
+const singleLogos = [
+  { name: "NBF - National Bank of Fujairah", src: "/logos/nbf.png" },
+  { name: "Enhance Fitness", src: "/logos/enhance-fitness.png" },
+  { name: "Learners Education", src: "/logos/learners-education.png" },
+  { name: "Sobha Realty", src: "/logos/sobha-realty.png" },
+];
+
+// Duplicate logos array twice so each group has 8 logos (16 total)
+const logos = [...singleLogos, ...singleLogos];
+---
+
+<div id="marquee-section" class="w-full border-y border-brand-text/25 bg-brand-bg/50 backdrop-blur-sm py-12 md:py-16 overflow-hidden relative flex items-center justify-center">
+  <!-- Fade edges -->
+  <div class="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-brand-bg to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-brand-bg to-transparent z-10 pointer-events-none"></div>
+
+  <div id="marquee-track" class="flex w-max items-center">
+    <!-- Group 1 -->
+    <div class="marquee-group flex shrink-0 items-center space-x-28 md:space-x-44 lg:space-x-56 pr-28 md:pr-44 lg:pr-56">
+      {logos.map((logo) => (
+        <div class="flex items-center justify-center h-11 md:h-16 lg:h-20">
+          <img
+            src={logo.src}
+            alt={logo.name}
+            class="h-full w-auto max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Group 2 (Identical duplicate for seamless GSAP infinite loop) -->
+    <div class="marquee-group flex shrink-0 items-center space-x-28 md:space-x-44 lg:space-x-56 pr-28 md:pr-44 lg:pr-56">
+      {logos.map((logo) => (
+        <div class="flex items-center justify-center h-11 md:h-16 lg:h-20">
+          <img
+            src={logo.src}
+            alt={logo.name}
+            class="h-full w-auto max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initMarquee = () => {
+    const section = document.getElementById("marquee-section");
+    const track = document.getElementById("marquee-track");
+    if (!track || !section) return;
+
+    // Entry animation when scrolled into view
+    gsap.set(section, { opacity: 0, y: 20 });
+    gsap.to(section, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    const tween = gsap.to(track, {
+      xPercent: -50,
+      duration: 35,
+      ease: "none",
+      repeat: -1,
+    });
+
+    track.addEventListener("mouseenter", () => tween.pause());
+    track.addEventListener("mouseleave", () => tween.play());
+  };
+
+  if (document.readyState === "complete") {
+    initMarquee();
+  } else {
+    window.addEventListener("load", initMarquee);
+  }
+</script>

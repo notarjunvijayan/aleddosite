@@ -1,0 +1,241 @@
+---
+import Button from "./Button.astro";
+---
+
+<div
+    id="container"
+    class="relative p-6 md:p-10 flex-1 w-full flex flex-col items-center justify-center overflow-hidden min-h-[calc(100vh-73px)] gap-12 md:gap-16"
+>
+    <!-- 2 Vertical Background Lines & Right Outer Margin Container (Desktop only, framing the content) -->
+    <div
+        class="absolute inset-0 pointer-events-none hidden md:flex justify-center"
+        aria-hidden="true"
+    >
+        <div
+            class="w-full max-w-3xl md:max-w-4xl 2xl:max-w-6xl h-full relative flex justify-between"
+        >
+            <div class="hero-line w-px h-full bg-brand-text/25 origin-top"></div>
+            <div class="hero-line w-px h-full bg-brand-text/25 origin-top"></div>
+
+            <!-- Desktop Scroll Indicator (Centered between second vertical line & right screen edge) -->
+            <div class="absolute left-full top-0 bottom-0 w-[calc((100vw-100%)/2)] hidden lg:flex items-end justify-center pb-8 xl:pb-12 pointer-events-auto overflow-hidden">
+                <a
+                    href="#marquee-section"
+                    class="scroll-indicator-target flex items-center justify-center text-brand-text/75 hover:text-brand-text transition-colors duration-300 group cursor-pointer"
+                    aria-label="Scroll to see more"
+                >
+                    <div class="relative w-36 h-36 xl:w-44 xl:h-44 2xl:w-48 2xl:h-48 flex items-center justify-center">
+                        <!-- Rotating Text Ring SVG -->
+                        <svg
+                            viewBox="0 0 140 140"
+                            class="w-full h-auto animate-[spin_14s_linear_infinite]"
+                        >
+                            <path
+                                id="scrollTextPathDesktop"
+                                d="M 70,70 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
+                                fill="none"
+                            ></path>
+                            <text class="text-[13.5px] font-semibold tracking-[0.2em] uppercase fill-current font-sans">
+                                <textPath href="#scrollTextPathDesktop" startOffset="0%">
+                                    SCROLL TO SEE MORE • SCROLL TO SEE MORE •
+                                </textPath>
+                            </text>
+                        </svg>
+                        <!-- Stationary Center Arrow -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <svg
+                                class="w-7 h-7 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 text-brand-text stroke-current transition-transform duration-300 group-hover:translate-y-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.75"
+                                    d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                                ></path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Heading -->
+    <div class="flex items-center justify-center w-full">
+        <h1
+            id="hero-heading"
+            class="relative z-10 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-8xl font-bold text-brand-text text-center text-balance leading-tight max-w-3xl md:max-w-3xl 2xl:max-w-4xl mx-auto px-4 sm:px-6 md:px-12"
+        >
+            Orchestrating Unified Intelligence
+        </h1>
+    </div>
+
+    <!-- Hero Action Buttons -->
+    <div
+        class="relative z-10 w-full max-w-3xl md:max-w-4xl 2xl:max-w-6xl mx-auto flex flex-col gap-3 md:gap-4"
+    >
+        <div class="hero-button-wrapper w-full">
+            <Button text="Discover Solutions" href="#" />
+        </div>
+        <div class="hero-button-wrapper w-full">
+            <Button text="View Case Studies" href="#" />
+        </div>
+    </div>
+
+    <!-- Mobile Scroll Indicator (Centered at bottom for mobile screens) -->
+    <div
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 lg:hidden z-20 pointer-events-auto"
+    >
+        <a
+            href="#marquee-section"
+            class="scroll-indicator-target flex items-center justify-center text-brand-text/75 hover:text-brand-text transition-colors duration-300 group cursor-pointer"
+            aria-label="Scroll to see more"
+        >
+            <div class="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
+                <!-- Rotating Text Ring SVG -->
+                <svg
+                    viewBox="0 0 130 130"
+                    class="w-full h-auto animate-[spin_14s_linear_infinite]"
+                >
+                    <path
+                        id="scrollTextPathMobile"
+                        d="M 65,65 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"
+                        fill="none"
+                    ></path>
+                    <text class="text-[12.5px] font-semibold tracking-[0.2em] uppercase fill-current font-sans">
+                        <textPath href="#scrollTextPathMobile" startOffset="0%">
+                            SCROLL TO SEE MORE • SCROLL TO SEE MORE •
+                        </textPath>
+                    </text>
+                </svg>
+                <!-- Stationary Center Arrow -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg
+                        class="w-5 h-5 sm:w-6 sm:h-6 text-brand-text stroke-current transition-transform duration-300 group-hover:translate-y-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.75"
+                            d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    import gsap from "gsap";
+
+    const initHeroAnimation = () => {
+        const lines = document.querySelectorAll(".hero-line");
+        const heading = document.getElementById("hero-heading");
+        const buttons = document.querySelectorAll(".hero-button-wrapper");
+        const scrollIndicators = document.querySelectorAll(".scroll-indicator-target");
+
+        if (!heading || lines.length === 0) return;
+
+        // Set initial state
+        gsap.set(lines, { scaleY: 0, transformOrigin: "top center" });
+        gsap.set(heading, { y: 30, opacity: 0 });
+        gsap.set(buttons, { y: 20, opacity: 0 });
+        if (scrollIndicators.length) {
+            gsap.set(scrollIndicators, { scale: 0.8, opacity: 0 });
+        }
+
+        const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+        // 1. Draw vertical lines
+        tl.to(lines, {
+            scaleY: 1,
+            duration: 0.7,
+            stagger: 0.1,
+        })
+            // 2. Animate heading up
+            .to(
+                heading,
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.55,
+                },
+                "-=0.5",
+            )
+            // 3. Animate buttons up sequentially
+            .to(
+                buttons,
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.45,
+                    stagger: 0.08,
+                },
+                "-=0.3",
+            );
+
+        if (scrollIndicators.length) {
+            tl.to(
+                scrollIndicators,
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.45,
+                },
+                "-=0.35",
+            );
+        }
+
+        // Subtle Mouse Magnetic Parallax for Scroll Indicators
+        const heroContainer = document.getElementById("container");
+        if (heroContainer && scrollIndicators.length) {
+            heroContainer.addEventListener("mousemove", (e) => {
+                scrollIndicators.forEach((indicator) => {
+                    const rect = indicator.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+
+                    const deltaX = (e.clientX - centerX) * 0.06;
+                    const deltaY = (e.clientY - centerY) * 0.06;
+
+                    const maxOffset = 14;
+                    const clampedX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+                    const clampedY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+
+                    gsap.to(indicator, {
+                        x: clampedX,
+                        y: clampedY,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        overwrite: "auto",
+                    });
+                });
+            });
+
+            heroContainer.addEventListener("mouseleave", () => {
+                scrollIndicators.forEach((indicator) => {
+                    gsap.to(indicator, {
+                        x: 0,
+                        y: 0,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        overwrite: "auto",
+                    });
+                });
+            });
+        }
+    };
+
+    if (document.readyState === "complete") {
+        initHeroAnimation();
+    } else {
+        window.addEventListener("load", initHeroAnimation);
+    }
+</script>
