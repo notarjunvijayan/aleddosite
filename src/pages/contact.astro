@@ -1,0 +1,367 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout title="Contact Us | Aleddo Technologies">
+  <Navbar />
+
+  <main
+    id="contact-page"
+    class="relative w-full bg-brand-bg text-brand-text overflow-hidden min-h-screen flex flex-col justify-between"
+  >
+    <!-- Contact Header Section (Grid Aligned, No Glow/Halo) -->
+    <section class="relative z-10 w-full border-b border-brand-text/25">
+      <div class="w-full flex flex-col md:flex-row items-stretch relative">
+        <!-- Left Side Text Block -->
+        <div
+          class="w-full md:w-[58%] lg:w-[58%] p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-center space-y-4 relative"
+        >
+          <h1
+            class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-brand-text leading-tight"
+          >
+            <span class="block text-brand-text">Let's Build Something</span>
+            <span class="block text-brand-tertiary">Extraordinary</span>
+          </h1>
+          <p
+            class="contact-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-light leading-relaxed max-w-2xl pt-2"
+          >
+            Have a vision in mind, need tailored AI solutions, or want to discuss enterprise tech strategy? Get in touch with our teams in Dubai and India.
+          </p>
+
+          <!-- Vertical Divider (Desktop) -->
+          <div class="contact-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden md:block origin-top"></div>
+        </div>
+
+        <!-- Right Side Image Block (Grid aligned, no glow) -->
+        <div class="w-full md:w-[42%] lg:w-[42%] relative overflow-hidden flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12 bg-brand-bg">
+          <div class="relative w-full h-full min-h-[220px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[380px] border border-brand-text/25 overflow-hidden">
+            <img
+              src="/images/contact_extraordinary_bg.webp"
+              alt="Aleddo AI Matrix Graphic"
+              class="contact-hero-image w-full h-full object-cover object-center opacity-90 hover:opacity-100 transition-opacity duration-500"
+            />
+          </div>
+        </div>
+
+        <!-- Animated Bottom Horizontal Line -->
+        <div class="contact-line-h absolute bottom-0 inset-x-0 h-px bg-brand-text/25 origin-left"></div>
+      </div>
+    </section>
+
+    <!-- Main Contact Section (Balanced 2 Columns Grid) -->
+    <section class="relative z-10 w-full border-b border-brand-text/25">
+      <div class="w-full flex flex-col lg:flex-row items-stretch relative">
+        <!-- Left Column: Direct Contact Channels & Expanded Addresses (48% Width) -->
+        <div
+          class="w-full lg:w-[48%] xl:w-[48%] p-6 sm:p-10 md:p-14 lg:p-16 border-b lg:border-b-0 flex flex-col justify-between relative overflow-hidden"
+        >
+          <div class="space-y-0">
+            <!-- Dubai, UAE Office -->
+            <div class="contact-info-card space-y-3 pb-8 sm:pb-10">
+              <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">Dubai, UAE</h3>
+              <div class="space-y-1">
+                <p class="text-xl sm:text-2xl font-bold text-brand-text">Aleddo Technologies</p>
+                <p class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md">
+                  6th Floor, Meydan Grandstand, Meydan,<br />
+                  Nad Al Sheba, Dubai, UAE
+                </p>
+              </div>
+              <div class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal">
+                <p>
+                  <span class="text-brand-text/60">Phone:</span>
+                  <a href="tel:+971502978387" class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2">
+                    +971 502978387
+                  </a>
+                </p>
+                <p>
+                  <span class="text-brand-text/60">Email:</span>
+                  <a href="mailto:contact@aleddotechnologies.com" class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2">
+                    contact@aleddotechnologies.com
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Full-Bleed Horizontal Divider Line Touching Both Outer Borders -->
+            <div class="relative my-8 sm:my-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] md:w-[calc(100%+7rem)] lg:w-[calc(100%+8rem)] -ml-6 sm:-ml-10 md:-ml-14 lg:-ml-16 h-px bg-brand-text/25 overflow-hidden">
+              <div class="contact-line-h absolute inset-0 bg-brand-text/25 origin-left"></div>
+            </div>
+
+            <!-- India Office -->
+            <div class="contact-info-card space-y-3 pt-2">
+              <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">India</h3>
+              <div class="space-y-1">
+                <p class="text-xl sm:text-2xl font-bold text-brand-text">Aleddo Technologies</p>
+                <p class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md">
+                  Ernakulam, Kerala, India
+                </p>
+              </div>
+              <div class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal">
+                <p>
+                  <span class="text-brand-text/60">Phone:</span>
+                  <a href="tel:+919061228972" class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2">
+                    +91 9061228972
+                  </a>
+                </p>
+                <p>
+                  <span class="text-brand-text/60">Email:</span>
+                  <a href="mailto:contact@aleddotechnologies.com" class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2">
+                    contact@aleddotechnologies.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-Bleed Horizontal Divider Line Above Connect With Us -->
+          <div class="relative my-8 sm:my-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] md:w-[calc(100%+7rem)] lg:w-[calc(100%+8rem)] -ml-6 sm:-ml-10 md:-ml-14 lg:-ml-16 h-px bg-brand-text/25 overflow-hidden">
+            <div class="contact-line-h absolute inset-0 bg-brand-text/25 origin-left"></div>
+          </div>
+
+          <!-- Social & Messaging Channels -->
+          <div class="space-y-4 pt-2">
+            <h3 class="text-xs uppercase tracking-widest text-brand-text/60 font-semibold">Connect With Us</h3>
+            <div class="flex flex-wrap items-center gap-6 sm:gap-8 text-base sm:text-lg font-semibold text-brand-text/85">
+              <a
+                href="https://www.linkedin.com/company/aleddotechnologies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-brand-tertiary transition-colors inline-flex items-center space-x-2"
+              >
+                <span>LinkedIn</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+              <a
+                href="https://wa.me/message/HDH64AIYYV2WD1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-brand-tertiary transition-colors inline-flex items-center space-x-2"
+              >
+                <span>WhatsApp</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+              <a
+                href="https://www.instagram.com/aleddotechnologies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-brand-tertiary transition-colors inline-flex items-center space-x-2"
+              >
+                <span>Instagram</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Animated Vertical Divider (Desktop) -->
+          <div class="contact-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden lg:block origin-top"></div>
+        </div>
+
+        <!-- Right Column: Interactive Contact Form (52% Width) -->
+        <div class="w-full lg:w-[52%] xl:w-[52%] p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col justify-between">
+          <form id="contact-form" class="space-y-8 max-w-2xl">
+            <!-- Name & Email Inputs -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div class="form-group space-y-2">
+                <label for="name" class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase">
+                  Full Name <span class="text-brand-tertiary">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Doe"
+                  class="w-full bg-brand-bg/60 border border-brand-text/25 p-4 text-brand-text placeholder-brand-text/40 text-base sm:text-lg focus:border-brand-tertiary focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div class="form-group space-y-2">
+                <label for="email" class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase">
+                  Work Email <span class="text-brand-tertiary">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@company.com"
+                  class="w-full bg-brand-bg/60 border border-brand-text/25 p-4 text-brand-text placeholder-brand-text/40 text-base sm:text-lg focus:border-brand-tertiary focus:outline-none transition-colors"
+                />
+              </div>
+            </div>
+
+            <!-- Company Name -->
+            <div class="form-group space-y-2">
+              <label for="company" class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase">
+                Company / Organization
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Acme Inc."
+                class="w-full bg-brand-bg/60 border border-brand-text/25 p-4 text-brand-text placeholder-brand-text/40 text-base sm:text-lg focus:border-brand-tertiary focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Service Pills Selection -->
+            <div class="form-group space-y-3">
+              <label class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase">
+                Services Interested In
+              </label>
+              <div class="flex flex-wrap gap-2.5 sm:gap-3">
+                <label class="cursor-pointer">
+                  <input type="checkbox" name="services" value="Custom AI Solutions" class="peer hidden" />
+                  <span class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all">
+                    Custom AI Solutions
+                  </span>
+                </label>
+
+                <label class="cursor-pointer">
+                  <input type="checkbox" name="services" value="AI Automation & Voice" class="peer hidden" />
+                  <span class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all">
+                    AI Automation & Voice
+                  </span>
+                </label>
+
+                <label class="cursor-pointer">
+                  <input type="checkbox" name="services" value="Custom Web & Software" class="peer hidden" />
+                  <span class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all">
+                    Custom Web & Software
+                  </span>
+                </label>
+
+                <label class="cursor-pointer">
+                  <input type="checkbox" name="services" value="Data Engineering & BI" class="peer hidden" />
+                  <span class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all">
+                    Data Engineering & BI
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Message Textarea -->
+            <div class="form-group space-y-2">
+              <label for="message" class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase">
+                Project Details / Message <span class="text-brand-tertiary">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Tell us about your project goals, timelines, or technical requirements..."
+                class="w-full bg-brand-bg/60 border border-brand-text/25 p-4 text-brand-text placeholder-brand-text/40 text-base sm:text-lg focus:border-brand-tertiary focus:outline-none transition-colors"
+              ></textarea>
+            </div>
+
+            <!-- Form Submission Button & Feedback Message -->
+            <div class="pt-4 space-y-4">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="inline-flex items-center justify-between px-8 py-4 sm:px-10 sm:py-4.5 bg-brand-tertiary text-brand-bg font-semibold text-base sm:text-lg tracking-wide hover:bg-brand-muted transition-all duration-300 group shadow-lg cursor-pointer"
+              >
+                <span class="mr-6 font-semibold">Send Message</span>
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6 stroke-current transition-transform duration-300 group-hover:translate-x-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                </svg>
+              </button>
+
+              <div id="form-success-msg" class="hidden text-brand-tertiary text-base font-semibold pt-2">
+                ✓ Thank you! Your message has been received. Our team will respond within 24 hours.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import gsap from "gsap";
+
+  const initContactAnimations = () => {
+    const title = document.querySelector(".contact-title");
+    const subtitle = document.querySelector(".contact-subtitle");
+    const heroImage = document.querySelector(".contact-hero-image");
+    const linesV = document.querySelectorAll(".contact-line-v");
+    const linesH = document.querySelectorAll(".contact-line-h");
+    const cards = document.querySelectorAll(".contact-info-card");
+    const formGroups = document.querySelectorAll(".form-group");
+    const submitBtn = document.getElementById("submit-btn");
+
+    if (linesV.length) gsap.set(linesV, { scaleY: 0, transformOrigin: "top center" });
+    if (linesH.length) gsap.set(linesH, { scaleX: 0, transformOrigin: "left center" });
+    if (title) gsap.set(title, { y: 25, opacity: 0 });
+    if (subtitle) gsap.set(subtitle, { y: 20, opacity: 0 });
+    if (heroImage) gsap.set(heroImage, { y: 25, opacity: 0 });
+    if (cards.length) gsap.set(cards, { y: 20, opacity: 0 });
+    if (formGroups.length) gsap.set(formGroups, { y: 20, opacity: 0 });
+    if (submitBtn) gsap.set(submitBtn, { y: 15, opacity: 0 });
+
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    if (linesV.length) {
+      tl.to(linesV, { scaleY: 1, duration: 0.45, stagger: 0.1 });
+    }
+
+    if (linesH.length) {
+      tl.to(linesH, { scaleX: 1, duration: 0.4, stagger: 0.08 }, "-=0.35");
+    }
+
+    if (title) {
+      tl.to(title, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+
+    if (subtitle) {
+      tl.to(subtitle, { y: 0, opacity: 1, duration: 0.4 }, "-=0.35");
+    }
+
+    if (heroImage) {
+      tl.to(heroImage, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+
+    if (cards.length) {
+      tl.to(cards, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06 }, "-=0.3");
+    }
+
+    if (formGroups.length) {
+      tl.to(formGroups, { y: 0, opacity: 1, duration: 0.35, stagger: 0.05 }, "-=0.35");
+    }
+
+    if (submitBtn) {
+      tl.to(submitBtn, { y: 0, opacity: 1, duration: 0.3 }, "-=0.2");
+    }
+  };
+
+  // Form Handling
+  const contactForm = document.getElementById("contact-form") as HTMLFormElement | null;
+  const successMsg = document.getElementById("form-success-msg");
+
+  if (contactForm && successMsg) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      contactForm.reset();
+      successMsg.classList.remove("hidden");
+      gsap.fromTo(successMsg, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" });
+    });
+  }
+
+  if (document.readyState === "complete") {
+    initContactAnimations();
+  } else {
+    window.addEventListener("load", initContactAnimations);
+  }
+</script>
