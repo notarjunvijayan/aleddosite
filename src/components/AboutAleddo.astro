@@ -68,10 +68,10 @@ const biDataFeatures = [
   id="about-aleddo-section"
   class="relative w-full bg-brand-bg text-brand-text border-b border-brand-text/25"
 >
-  <div class="w-full flex flex-col lg:flex-row items-stretch">
+  <div class="w-full flex flex-col lg:flex-row items-stretch relative">
     <!-- Left Column: Sticky Heading aligned to top baseline of right section -->
     <div
-      class="w-full lg:w-[28%] xl:w-[26%] border-b lg:border-b-0 lg:border-r border-brand-text/25 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 shrink-0 flex flex-col justify-start lg:min-h-screen"
+      class="w-full lg:w-[28%] xl:w-[26%] border-b lg:border-b-0 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 shrink-0 flex flex-col justify-start lg:min-h-screen relative"
     >
       <div class="lg:sticky lg:top-24 space-y-2">
         <h2
@@ -81,13 +81,16 @@ const biDataFeatures = [
           <span class="block text-brand-tertiary">Aleddo</span>
         </h2>
       </div>
+
+      <!-- Animated Vertical Dividing Line (Desktop) -->
+      <div class="about-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden lg:block origin-top"></div>
     </div>
 
     <!-- Right Column: Scrollable Content Area -->
     <div class="w-full lg:w-[72%] xl:w-[74%] flex flex-col min-w-0">
       <!-- About Paragraph Block -->
       <div
-        class="about-paragraph-block w-full p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 md:py-16 border-b border-brand-text/25 flex items-start justify-start min-h-0 lg:min-h-[460px]"
+        class="about-paragraph-block w-full p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 md:py-16 flex items-start justify-start min-h-0 lg:min-h-[460px] relative"
       >
         <p
           class="max-w-2xl lg:max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 leading-relaxed"
@@ -101,6 +104,9 @@ const biDataFeatures = [
           drive real results, automate repetitive tasks, and empower your team
           to focus on what matters most.
         </p>
+
+        <!-- Animated Horizontal Line under Paragraph -->
+        <div class="about-line-h absolute bottom-0 inset-x-0 h-px bg-brand-text/25 origin-left"></div>
       </div>
 
       <!-- Solution 1: Custom AI Solutions -->
@@ -153,13 +159,17 @@ const biDataFeatures = [
     const section = document.getElementById("about-aleddo-section");
     if (!section) return;
 
+    const lineV = section.querySelector(".about-line-v");
+    const linesH = section.querySelectorAll(".about-line-h");
     const heading = section.querySelector(".about-heading");
     const paragraphBlock = section.querySelector(".about-paragraph-block");
     const cards = section.querySelectorAll(".solution-card");
 
-    if (heading) gsap.set(heading, { y: 30, opacity: 0 });
-    if (paragraphBlock) gsap.set(paragraphBlock, { y: 30, opacity: 0 });
-    if (cards.length) gsap.set(cards, { y: 40, opacity: 0 });
+    // Set initial states for snappy entrance
+    if (lineV) gsap.set(lineV, { scaleY: 0, transformOrigin: "top center" });
+    if (linesH.length) gsap.set(linesH, { scaleX: 0, transformOrigin: "left center" });
+    if (heading) gsap.set(heading, { y: 25, opacity: 0 });
+    if (paragraphBlock) gsap.set(paragraphBlock, { y: 25, opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -170,27 +180,65 @@ const biDataFeatures = [
       defaults: { ease: "power4.out" },
     });
 
+    // 1. Line draw vertical line
+    if (lineV) {
+      tl.to(lineV, { scaleY: 1, duration: 0.5 });
+    }
+
+    // 2. Line draw horizontal lines
+    if (linesH.length) {
+      tl.to(linesH, { scaleX: 1, duration: 0.45, stagger: 0.08 }, "-=0.35");
+    }
+
+    // 3. Reveal heading and paragraph
     if (heading) {
-      tl.to(heading, { y: 0, opacity: 1, duration: 0.6 });
+      tl.to(heading, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
     }
 
     if (paragraphBlock) {
-      tl.to(paragraphBlock, { y: 0, opacity: 1, duration: 0.6 }, "-=0.4");
+      tl.to(paragraphBlock, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
     }
 
+    // 4. Snappy staggered entrance for each Solution Card
     if (cards.length) {
       cards.forEach((card) => {
-        gsap.to(card, {
-          y: 0,
-          opacity: 1,
-          duration: 0.65,
-          ease: "power4.out",
+        const cardImg = card.querySelector("img");
+        const cardTitle = card.querySelector("h3");
+        const cardDesc = card.querySelectorAll("p, ul, h4");
+        const cardLine = card.querySelector(".absolute.bottom-0");
+
+        gsap.set(card, { y: 30, opacity: 0 });
+        if (cardImg) gsap.set(cardImg, { scale: 1.08 });
+        if (cardTitle) gsap.set(cardTitle, { y: 15, opacity: 0 });
+        if (cardDesc.length) gsap.set(cardDesc, { y: 12, opacity: 0 });
+        if (cardLine) gsap.set(cardLine, { scaleX: 0, transformOrigin: "left center" });
+
+        const cardTl = gsap.timeline({
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
             toggleActions: "play none none none",
           },
+          defaults: { ease: "power4.out" },
         });
+
+        cardTl.to(card, { y: 0, opacity: 1, duration: 0.45 });
+
+        if (cardLine) {
+          cardTl.to(cardLine, { scaleX: 1, duration: 0.4 }, "-=0.35");
+        }
+
+        if (cardImg) {
+          cardTl.to(cardImg, { scale: 1, duration: 0.8, ease: "power2.out" }, "-=0.45");
+        }
+
+        if (cardTitle) {
+          cardTl.to(cardTitle, { y: 0, opacity: 1, duration: 0.35 }, "-=0.7");
+        }
+
+        if (cardDesc.length) {
+          cardTl.to(cardDesc, { y: 0, opacity: 1, duration: 0.35, stagger: 0.04 }, "-=0.3");
+        }
       });
     }
   };

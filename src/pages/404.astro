@@ -1,17 +1,110 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import ButtonAstroComponent from "../components/Button.astro";
 ---
 
-<Layout>
-    <Navbar />
-    <div class="404container">
-        <h1 class="text-9xl font-bold text-center">404</h1>
-        <p class="text-2xl font-bold text-center">Page Not Found</p>
-        <p class="text-xl text-center">
-            The page you are looking for does not exist.
-        </p>
+<Layout title="404 - Page Not Found | Aleddo Technologies">
+  <Navbar />
+
+  <div
+    id="404-container"
+    class="relative w-full min-h-[calc(100vh-73px)] bg-brand-bg text-brand-text flex flex-col justify-between items-center overflow-hidden px-4 sm:px-6 md:px-10 py-12 md:py-16"
+  >
+    <!-- 2 Vertical Grid Framing Lines -->
+    <div
+      class="absolute inset-0 pointer-events-none hidden md:flex justify-center"
+      aria-hidden="true"
+    >
+      <div
+        class="w-full max-w-3xl md:max-w-4xl 2xl:max-w-6xl h-full relative flex justify-between border-x border-brand-text/15"
+      >
+      </div>
     </div>
-    <ButtonAstroComponent />
+
+    <!-- Central Content Area -->
+    <div
+      class="my-auto relative z-10 flex flex-col items-center justify-center text-center max-w-2xl mx-auto px-4"
+    >
+      <!-- Big 404 Gradient Number -->
+      <h1
+        class="404-number text-8xl sm:text-9xl md:text-[11rem] lg:text-[13rem] font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-brand-text via-brand-text/80 to-brand-tertiary/20 select-none drop-shadow-lg"
+      >
+        404
+      </h1>
+
+      <!-- Heading -->
+      <h2
+        class="404-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-brand-text mt-2 sm:mt-4"
+      >
+        Page Out of Bounds
+      </h2>
+
+      <!-- Description -->
+      <p
+        class="404-desc text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-relaxed max-w-md sm:max-w-lg text-center mt-4 sm:mt-6"
+      >
+        The page or neural pathway you are searching for does not exist or has
+        been relocated within our systems.
+      </p>
+
+      <!-- Action Buttons -->
+      <div
+        class="404-actions flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-8 sm:mt-10"
+      >
+        <a
+          href="/"
+          class="inline-flex items-center justify-between px-8 py-4 bg-brand-tertiary text-brand-bg font-semibold text-base sm:text-lg tracking-wide hover:bg-brand-muted transition-all duration-300 group shadow-lg"
+        >
+          <span>Return to Homepage</span>
+          <svg
+            class="w-5 h-5 ml-4 stroke-current transition-transform duration-300 group-hover:translate-x-1.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+          </svg>
+        </a>
+
+        <a
+          href="/#about-aleddo-section"
+          class="inline-flex items-center text-brand-text/85 hover:text-brand-tertiary text-base sm:text-lg font-medium transition-colors duration-300 py-2 border-b border-transparent hover:border-brand-tertiary"
+        >
+          <span>Explore AI Solutions &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  import gsap from "gsap";
+
+  const init404Animation = () => {
+    const number = document.querySelector(".404-number");
+    const title = document.querySelector(".404-title");
+    const desc = document.querySelector(".404-desc");
+    const actions = document.querySelector(".404-actions");
+
+    if (!number) return;
+
+    gsap.set([number, title, desc, actions], { y: 25, opacity: 0 });
+
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    tl.to(number, { y: 0, opacity: 1, duration: 0.7 })
+      .to(title, { y: 0, opacity: 1, duration: 0.55 }, "-=0.45")
+      .to(desc, { y: 0, opacity: 1, duration: 0.5 }, "-=0.35")
+      .to(actions, { y: 0, opacity: 1, duration: 0.45 }, "-=0.3");
+  };
+
+  if (document.readyState === "complete") {
+    init404Animation();
+  } else {
+    window.addEventListener("load", init404Animation);
+  }
+</script>
