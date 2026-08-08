@@ -1,18 +1,66 @@
 ---
 import SolutionCard from "./SolutionCard.astro";
 
-const aiCapabilities = [
+// 1. Custom AI Solutions Capabilities
+const customAiCapabilities = [
   "Predictive Analytics & Machine Learning Model Development",
   "Computer Vision & Natural Language Processing (NLP)",
   "Generative AI & AI-Powered RPA",
   "Intelligent Document Processing & OCR Automation",
 ];
 
-const dataCapabilities = [
-  "Enterprise Data Warehouse & Data Lake Architecture",
-  "Real-time Data Pipeline & ETL Automation",
-  "Business Intelligence & Custom Interactive Dashboards",
-  "Advanced Data Governance & Security Compliance",
+// 2. AI Automation, Chatbots & Voice Agents Sub-Blocks
+const aiAutomationSubBlocks = [
+  {
+    title: "Document & Workflow Automation",
+    description:
+      "Automatically extract, validate, and route data from PDFs, scanned forms, invoices, and Excel spreadsheets using custom business rules.\n\nException handling flags edge cases for human review while routine tasks move forward automatically.",
+    buttonText: "Evolve",
+    buttonHref: "#",
+  },
+  {
+    title: "Agentic AI, Chatbots & Voice Agents",
+    features: [
+      {
+        label: "Customer Support Agents",
+        text: 'Handle complex inquiries (e.g., "Where is my order?" or "How do I request a quote?") using NLP and RAG. Trained on your specific domain with seamless human-agent handoffs mid-conversation.',
+      },
+      {
+        label: "Internal Assistants",
+        text: "Allow employees to query operational data using plain language or execute internal requests (e.g., filing leave applications) directly through conversational interfaces.",
+      },
+    ],
+    buttonText: "Evolve",
+    buttonHref: "#",
+  },
+];
+
+// 3. Custom Web & Software Development Features
+const webSoftwareFeatures = [
+  {
+    label: "Tailored Applications",
+    text: "From specialized internal tools to enterprise-grade platforms.",
+  },
+  {
+    label: "Built to Scale",
+    text: "Designed for peak performance, security, and effortless scaling as your user base grows.",
+  },
+];
+
+// 4. Business Intelligence & Data Engineering Features
+const biDataFeatures = [
+  {
+    label: "Real-time Visibility",
+    text: "Dashboards and reports that accurately reflect your daily operational reality.",
+  },
+  {
+    label: "Automated Reporting",
+    text: "Eliminate weekly manual data collection and reporting.",
+  },
+  {
+    label: "Scalable Data Architecture",
+    text: "Infrastructure built to handle long-term growth without breaking under pressure.",
+  },
 ];
 ---
 
@@ -37,7 +85,7 @@ const dataCapabilities = [
 
     <!-- Right Column: Scrollable Content Area -->
     <div class="w-full lg:w-[72%] xl:w-[74%] flex flex-col min-w-0">
-      <!-- About Paragraph Block (Matched padding & baseline alignment) -->
+      <!-- About Paragraph Block -->
       <div
         class="about-paragraph-block w-full p-8 md:p-12 lg:p-16 xl:p-20 border-b border-brand-text/25 flex items-start justify-start min-h-[340px] md:min-h-[400px] lg:min-h-[460px]"
       >
@@ -55,24 +103,41 @@ const dataCapabilities = [
         </p>
       </div>
 
-      <!-- Solutions Component 1: Custom AI Solutions -->
+      <!-- Solution 1: Custom AI Solutions -->
       <SolutionCard
         title="Custom AI Solutions"
         description="We build tailored artificial intelligence applications that automate, optimize, and scale your operations from the ground up."
-        capabilities={aiCapabilities}
+        capabilities={customAiCapabilities}
         buttonText="Evolve"
         buttonHref="#"
         bgImage="/images/ai_robot_solution_bg.png"
       />
 
-      <!-- Solutions Component 2: Enterprise Data Solutions (Demonstrates component reusability) -->
+      <!-- Solution 2: AI Automation, Chatbots & Voice Agents -->
       <SolutionCard
-        title="Data Engineering & Analytics"
-        description="Transform raw, complex data streams into structured actionable insights with modern data architectures."
-        capabilities={dataCapabilities}
-        buttonText="Explore Data"
+        title="AI Automation, Chatbots & Voice Agents"
+        subBlocks={aiAutomationSubBlocks}
+        bgImage="/images/ai_chatbot_voice_bg.png"
+      />
+
+      <!-- Solution 3: Custom Web & Software Development -->
+      <SolutionCard
+        title="Custom Web & Software Development"
+        description="Off-the-shelf software often forces you to compromise your processes. We engineer custom web and software solutions built specifically around how your business functions."
+        features={webSoftwareFeatures}
+        buttonText="Evolve"
         buttonHref="#"
-        bgImage="/images/ai_robot_solution_bg.png"
+        bgImage="/images/custom_web_software_bg.png"
+      />
+
+      <!-- Solution 4: Business Intelligence, Advanced Analytics & Data Engineering -->
+      <SolutionCard
+        title="Business Intelligence, Advanced Analytics & Data Engineering"
+        description="Most businesses are sitting on more data than they know what to do with. We transform raw data into actionable insights using industry-leading tools like Power BI, Tableau, and Alteryx."
+        features={biDataFeatures}
+        buttonText="Evolve"
+        buttonHref="#"
+        bgImage="/images/bi_data_engineering_bg.png"
       />
     </div>
   </div>

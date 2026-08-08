@@ -1,10 +1,25 @@
 ---
 import SolutionButton from "./SolutionButton.astro";
 
+export interface FeatureItem {
+  label: string;
+  text: string;
+}
+
+export interface SubBlock {
+  title?: string;
+  description?: string;
+  features?: FeatureItem[];
+  buttonText?: string;
+  buttonHref?: string;
+}
+
 interface Props {
   title: string;
-  description: string;
-  capabilities: string[];
+  description?: string;
+  capabilities?: string[];
+  features?: FeatureItem[];
+  subBlocks?: SubBlock[];
   buttonText?: string;
   buttonHref?: string;
   bgImage?: string;
@@ -14,6 +29,8 @@ const {
   title,
   description,
   capabilities,
+  features,
+  subBlocks,
   buttonText = "Evolve",
   buttonHref = "#",
   bgImage = "/images/ai_robot_solution_bg.png",
@@ -21,7 +38,7 @@ const {
 ---
 
 <div
-  class="solution-card relative w-full border-b border-brand-text/25 p-8 md:p-12 lg:p-16 overflow-hidden bg-brand-bg flex flex-col justify-between min-h-[500px]"
+  class="solution-card relative w-full border-b border-brand-text/25 p-8 md:p-12 lg:p-16 overflow-hidden bg-brand-bg flex flex-col justify-between min-h-[520px]"
 >
   <!-- Background Image with Gradient Masking -->
   {
@@ -30,10 +47,10 @@ const {
         <img
           src={bgImage}
           alt={title}
-          class="w-full md:w-3/4 lg:w-2/3 h-full object-cover object-center opacity-40 md:opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+          class="w-full md:w-3/4 lg:w-2/3 h-full object-cover object-center opacity-40 md:opacity-55 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
         />
-        <!-- Left Gradient Mask so text is always 100% legible -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/90 to-transparent"></div>
+        <!-- Left & Vertical Gradient Masks so text is always 100% legible -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/95 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-brand-bg/30"></div>
       </div>
     )
@@ -43,16 +60,20 @@ const {
   <div class="relative z-10 max-w-2xl lg:max-w-3xl flex flex-col justify-between h-full space-y-8 md:space-y-10">
     <div class="space-y-6 md:space-y-8">
       <!-- Title -->
-      <h3 class="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-semibold tracking-tight text-brand-text leading-tight">
+      <h3 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-brand-text leading-tight">
         {title}
       </h3>
 
-      <!-- Description -->
-      <p class="text-lg md:text-xl lg:text-2xl text-brand-text/90 font-normal leading-relaxed">
-        {description}
-      </p>
+      <!-- Single Description if provided -->
+      {
+        description && (
+          <p class="text-lg md:text-xl lg:text-2xl text-brand-text/90 font-normal leading-relaxed">
+            {description}
+          </p>
+        )
+      }
 
-      <!-- Core Capabilities -->
+      <!-- Core Capabilities (Simple string bullets) -->
       {
         capabilities && capabilities.length > 0 && (
           <div class="pt-2 md:pt-4 space-y-4">
@@ -70,11 +91,64 @@ const {
           </div>
         )
       }
+
+      <!-- Key-Value Features List -->
+      {
+        features && features.length > 0 && (
+          <div class="pt-2 md:pt-4 space-y-4">
+            {features.map((feat) => (
+              <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+                <strong class="text-brand-text font-semibold">{feat.label}:</strong> {feat.text}
+              </p>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- Nested Sub-Blocks (e.g. for Document & Workflow Automation + Agentic AI) -->
+      {
+        subBlocks && subBlocks.length > 0 && (
+          <div class="space-y-8 md:space-y-10 pt-2">
+            {subBlocks.map((block) => (
+              <div class="space-y-4">
+                {block.title && (
+                  <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-brand-text tracking-tight">
+                    {block.title}
+                  </h4>
+                )}
+                {block.description && (
+                  <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed whitespace-pre-line">
+                    {block.description}
+                  </p>
+                )}
+                {block.features && block.features.length > 0 && (
+                  <div class="space-y-3 pt-2">
+                    {block.features.map((feat) => (
+                      <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+                        <strong class="text-brand-text font-semibold">{feat.label}:</strong> {feat.text}
+                      </p>
+                    ))}
+                  </div>
+                )}
+                {block.buttonText && (
+                  <div class="pt-3">
+                    <SolutionButton text={block.buttonText} href={block.buttonHref || "#"} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
 
-    <!-- Solution Action Button -->
-    <div class="pt-6">
-      <SolutionButton text={buttonText} href={buttonHref} />
-    </div>
+    <!-- Solution Action Button (if not rendered inside subBlocks) -->
+    {
+      (!subBlocks || subBlocks.length === 0 || !subBlocks.some(b => b.buttonText)) && (
+        <div class="pt-6">
+          <SolutionButton text={buttonText} href={buttonHref} />
+        </div>
+      )
+    }
   </div>
 </div>
