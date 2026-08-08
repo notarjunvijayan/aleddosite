@@ -1,0 +1,182 @@
+---
+
+---
+
+<footer
+  id="footer-container"
+  class="relative w-full bg-brand-bg text-brand-text border-t border-brand-text/25 overflow-hidden"
+>
+  <!-- Main Footer Navigation & Info (Improved Spacing & Readability) -->
+  <div class="relative w-full p-6 sm:p-10 md:p-14 lg:p-16 py-12 sm:py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 md:gap-14">
+    <!-- Column 1: Brand Logo & Mission -->
+    <div class="footer-col space-y-4">
+      <a href="/" class="font-bold text-xl sm:text-2xl tracking-wide text-brand-text hover:text-brand-tertiary transition-colors block">
+        Aleddo Technologies
+      </a>
+      <p class="text-sm sm:text-base text-brand-text/80 leading-relaxed">
+        Orchestrating Unified Intelligence. Empowering modern enterprises through bespoke AI applications, data engineering, and high-performance software.
+      </p>
+      <div class="pt-2 text-xs sm:text-sm font-semibold text-brand-tertiary tracking-wider uppercase">
+        Dubai, UAE &bull; Ernakulam, India
+      </div>
+    </div>
+
+    <!-- Column 2: Solutions -->
+    <div class="footer-col space-y-4">
+      <h3 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">Solutions</h3>
+      <ul class="space-y-3 text-sm sm:text-base font-medium text-brand-text/85">
+        <li>
+          <a href="/#about-aleddo-section" class="hover:text-brand-tertiary transition-colors inline-block">
+            Custom AI Solutions
+          </a>
+        </li>
+        <li>
+          <a href="/#about-aleddo-section" class="hover:text-brand-tertiary transition-colors inline-block">
+            AI Automation & Voice Agents
+          </a>
+        </li>
+        <li>
+          <a href="/#about-aleddo-section" class="hover:text-brand-tertiary transition-colors inline-block">
+            Custom Web & Software
+          </a>
+        </li>
+        <li>
+          <a href="/#about-aleddo-section" class="hover:text-brand-tertiary transition-colors inline-block">
+            Data Engineering & BI
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Navigation -->
+    <div class="footer-col space-y-4">
+      <h3 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">Navigation</h3>
+      <ul class="space-y-3 text-sm sm:text-base font-medium text-brand-text/85">
+        <li>
+          <a href="/" class="hover:text-brand-tertiary transition-colors inline-block">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/#about-aleddo-section" class="hover:text-brand-tertiary transition-colors inline-block">
+            Solutions
+          </a>
+        </li>
+        <li>
+          <a href="/contact" class="hover:text-brand-tertiary transition-colors inline-block">
+            Contact Us
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-brand-tertiary transition-colors inline-block">
+            AI Studio
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Direct Channels & Connect -->
+    <div class="footer-col space-y-4">
+      <h3 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">Direct Channels</h3>
+      <div class="space-y-2 text-sm sm:text-base font-medium text-brand-text/90">
+        <p>
+          <a href="mailto:contact@aleddotechnologies.com" class="hover:text-brand-tertiary transition-colors">
+            contact@aleddotechnologies.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+971502978387" class="hover:text-brand-tertiary transition-colors">
+            +971 502978387
+          </a>
+        </p>
+      </div>
+
+      <div class="pt-4 space-y-3 border-t border-brand-text/15">
+        <h4 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">Social Media</h4>
+        <div class="flex flex-wrap items-center gap-5 text-sm sm:text-base font-semibold text-brand-text/85">
+          <a
+            href="https://www.linkedin.com/company/aleddotechnologies/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-brand-tertiary transition-colors"
+          >
+            LinkedIn &rarr;
+          </a>
+          <a
+            href="https://wa.me/message/HDH64AIYYV2WD1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-brand-tertiary transition-colors"
+          >
+            WhatsApp &rarr;
+          </a>
+          <a
+            href="https://www.instagram.com/aleddotechnologies/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-brand-tertiary transition-colors"
+          >
+            Instagram &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Copyright Bar -->
+  <div class="relative w-full px-6 sm:px-10 md:px-14 lg:px-16 py-6 border-t border-brand-text/25 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs sm:text-sm text-brand-text/65 font-medium">
+    <p class="footer-bottom-text">
+      &copy; {new Date().getFullYear()} Aleddo Technologies. All rights reserved.
+    </p>
+
+    <!-- Animated Bottom Border Line -->
+    <div class="footer-line-h absolute bottom-0 inset-x-0 h-px bg-brand-text/25 origin-left"></div>
+  </div>
+</footer>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initFooterAnimations = () => {
+    const footer = document.getElementById("footer-container");
+    if (!footer) return;
+
+    const linesH = footer.querySelectorAll(".footer-line-h");
+    const cols = footer.querySelectorAll(".footer-col");
+    const bottomTexts = footer.querySelectorAll(".footer-bottom-text");
+
+    if (linesH.length) gsap.set(linesH, { scaleX: 0, transformOrigin: "left center" });
+    if (cols.length) gsap.set(cols, { y: 25, opacity: 0 });
+    if (bottomTexts.length) gsap.set(bottomTexts, { y: 15, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: footer,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      defaults: { ease: "power4.out" },
+    });
+
+    if (linesH.length) {
+      tl.to(linesH, { scaleX: 1, duration: 0.45, stagger: 0.08 });
+    }
+
+    if (cols.length) {
+      tl.to(cols, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06 }, "-=0.35");
+    }
+
+    if (bottomTexts.length) {
+      tl.to(bottomTexts, { y: 0, opacity: 1, duration: 0.3, stagger: 0.05 }, "-=0.2");
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFooterAnimations);
+  } else {
+    initFooterAnimations();
+  }
+</script>

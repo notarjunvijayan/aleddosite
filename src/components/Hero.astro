@@ -236,9 +236,9 @@ import Button from "./Button.astro";
         }
     };
 
-    if (document.readyState === "complete") {
-        initHeroAnimation();
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initHeroAnimation);
     } else {
-        window.addEventListener("load", initHeroAnimation);
+        initHeroAnimation();
     }
 </script>

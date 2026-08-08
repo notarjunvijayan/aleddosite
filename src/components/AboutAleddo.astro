@@ -243,9 +243,9 @@ const biDataFeatures = [
     }
   };
 
-  if (document.readyState === "complete") {
-    initAboutAnimation();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAboutAnimation);
   } else {
-    window.addEventListener("load", initAboutAnimation);
+    initAboutAnimation();
   }
 </script>

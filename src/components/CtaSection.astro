@@ -1,0 +1,84 @@
+---
+import SolutionButton from "./SolutionButton.astro";
+---
+
+<section
+  id="cta-section"
+  class="relative w-full bg-brand-bg text-brand-text border-t border-brand-text/25 overflow-hidden"
+>
+  <div class="relative w-full p-6 sm:p-10 md:p-14 lg:p-16 py-12 sm:py-16 md:py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8 sm:gap-10">
+    <div class="space-y-4 max-w-3xl">
+      <h2
+        class="cta-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight"
+      >
+        <span class="block text-brand-text">Ready to Evolve Your</span>
+        <span class="block text-brand-tertiary">Operations with AI?</span>
+      </h2>
+      <p
+        class="cta-desc text-base sm:text-lg md:text-xl text-brand-text/85 font-light leading-relaxed max-w-xl pt-1"
+      >
+        Reach out to our teams in Dubai and India to discuss custom AI systems, workflow automation, and enterprise data engineering solutions.
+      </p>
+    </div>
+
+    <div class="cta-btn shrink-0 pt-2 lg:pt-0">
+      <SolutionButton text="Get in Touch" href="/contact" />
+    </div>
+
+    <!-- Animated Bottom Border Line -->
+    <div class="cta-line-h absolute bottom-0 inset-x-0 h-px bg-brand-text/25 origin-left"></div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initCtaAnimation = () => {
+    const section = document.getElementById("cta-section");
+    if (!section) return;
+
+    const lineH = section.querySelector(".cta-line-h");
+    const title = section.querySelector(".cta-title");
+    const desc = section.querySelector(".cta-desc");
+    const btn = section.querySelector(".cta-btn");
+
+    if (lineH) gsap.set(lineH, { scaleX: 0, transformOrigin: "left center" });
+    if (title) gsap.set(title, { y: 25, opacity: 0 });
+    if (desc) gsap.set(desc, { y: 20, opacity: 0 });
+    if (btn) gsap.set(btn, { scale: 0.95, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      defaults: { ease: "power4.out" },
+    });
+
+    if (lineH) {
+      tl.to(lineH, { scaleX: 1, duration: 0.45 });
+    }
+
+    if (title) {
+      tl.to(title, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+
+    if (desc) {
+      tl.to(desc, { y: 0, opacity: 1, duration: 0.4 }, "-=0.35");
+    }
+
+    if (btn) {
+      tl.to(btn, { scale: 1, opacity: 1, duration: 0.35 }, "-=0.3");
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCtaAnimation);
+  } else {
+    initCtaAnimation();
+  }
+</script>
