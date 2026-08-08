@@ -38,36 +38,36 @@ const {
 ---
 
 <div
-  class="solution-card relative w-full border-b border-brand-text/25 p-8 md:p-12 lg:p-16 overflow-hidden bg-brand-bg flex flex-col justify-between min-h-[520px]"
+  class="solution-card relative w-full border-b border-brand-text/25 p-6 sm:p-10 md:p-14 lg:p-16 xl:p-20 py-8 sm:py-12 md:py-16 overflow-hidden bg-brand-bg flex flex-col justify-between min-h-[480px] md:min-h-[560px]"
 >
-  <!-- Background Image with Gradient Masking -->
+  <!-- Background Image filling 100% of card with gradient overlay -->
   {
     bgImage && (
-      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden flex justify-end">
+      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src={bgImage}
           alt={title}
-          class="w-full md:w-3/4 lg:w-2/3 h-full object-cover object-center opacity-40 md:opacity-55 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+          class="w-full h-full object-cover object-right md:object-center opacity-70 sm:opacity-80 md:opacity-90 transition-all duration-700"
         />
-        <!-- Left & Vertical Gradient Masks so text is always 100% legible -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/95 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-brand-bg/30"></div>
+        <!-- Clean Left-to-Right & Subtle Vertical Masking for maximum image visibility + text legibility -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/85 via-40% to-brand-bg/20 md:to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/90 via-transparent to-brand-bg/30"></div>
       </div>
     )
   }
 
   <!-- Content Container -->
-  <div class="relative z-10 max-w-2xl lg:max-w-3xl flex flex-col justify-between h-full space-y-8 md:space-y-10">
-    <div class="space-y-6 md:space-y-8">
+  <div class="relative z-10 max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl flex flex-col justify-between h-full space-y-8 sm:space-y-10 md:space-y-12">
+    <div class="space-y-6 sm:space-y-8 md:space-y-10">
       <!-- Title -->
-      <h3 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-brand-text leading-tight">
+      <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-brand-text leading-tight">
         {title}
       </h3>
 
       <!-- Single Description if provided -->
       {
         description && (
-          <p class="text-lg md:text-xl lg:text-2xl text-brand-text/90 font-normal leading-relaxed">
+          <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/95 font-normal leading-relaxed">
             {description}
           </p>
         )
@@ -76,14 +76,14 @@ const {
       <!-- Core Capabilities (Simple string bullets) -->
       {
         capabilities && capabilities.length > 0 && (
-          <div class="pt-2 md:pt-4 space-y-4">
-            <h4 class="text-xl md:text-2xl lg:text-3xl font-semibold text-brand-text tracking-wide">
+          <div class="pt-2 sm:pt-4 space-y-3 sm:space-y-4">
+            <h4 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-brand-text tracking-wide">
               Core Capabilities
             </h4>
-            <ul class="space-y-3 text-base md:text-lg lg:text-xl text-brand-text/85 font-normal">
+            <ul class="space-y-3 sm:space-y-3.5 text-sm sm:text-base md:text-lg lg:text-xl text-brand-text/90 font-normal">
               {capabilities.map((cap) => (
-                <li class="flex items-start space-x-3">
-                  <span class="inline-block w-2 h-2 rounded-full bg-brand-tertiary mt-2.5 shrink-0"></span>
+                <li class="flex items-start space-x-3 sm:space-x-3.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-brand-tertiary mt-2 sm:mt-2.5 shrink-0 shadow-sm"></span>
                   <span>{cap}</span>
                 </li>
               ))}
@@ -95,9 +95,9 @@ const {
       <!-- Key-Value Features List -->
       {
         features && features.length > 0 && (
-          <div class="pt-2 md:pt-4 space-y-4">
+          <div class="pt-2 sm:pt-4 space-y-3 sm:space-y-4">
             {features.map((feat) => (
-              <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+              <p class="text-sm sm:text-base md:text-lg lg:text-xl text-brand-text/90 leading-relaxed">
                 <strong class="text-brand-text font-semibold">{feat.label}:</strong> {feat.text}
               </p>
             ))}
@@ -108,30 +108,30 @@ const {
       <!-- Nested Sub-Blocks (e.g. for Document & Workflow Automation + Agentic AI) -->
       {
         subBlocks && subBlocks.length > 0 && (
-          <div class="space-y-8 md:space-y-10 pt-2">
+          <div class="space-y-8 sm:space-y-10 md:space-y-12 pt-2">
             {subBlocks.map((block) => (
-              <div class="space-y-4">
+              <div class="space-y-4 sm:space-y-5">
                 {block.title && (
-                  <h4 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-brand-text tracking-tight">
+                  <h4 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-brand-text tracking-tight">
                     {block.title}
                   </h4>
                 )}
                 {block.description && (
-                  <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed whitespace-pre-line">
+                  <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/90 leading-relaxed whitespace-pre-line">
                     {block.description}
                   </p>
                 )}
                 {block.features && block.features.length > 0 && (
-                  <div class="space-y-3 pt-2">
+                  <div class="space-y-3 sm:space-y-3.5 pt-2">
                     {block.features.map((feat) => (
-                      <p class="text-base md:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+                      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-brand-text/90 leading-relaxed">
                         <strong class="text-brand-text font-semibold">{feat.label}:</strong> {feat.text}
                       </p>
                     ))}
                   </div>
                 )}
                 {block.buttonText && (
-                  <div class="pt-3">
+                  <div class="pt-4 sm:pt-5">
                     <SolutionButton text={block.buttonText} href={block.buttonHref || "#"} />
                   </div>
                 )}
@@ -145,7 +145,7 @@ const {
     <!-- Solution Action Button (if not rendered inside subBlocks) -->
     {
       (!subBlocks || subBlocks.length === 0 || !subBlocks.some(b => b.buttonText)) && (
-        <div class="pt-6">
+        <div class="pt-6 sm:pt-8 md:pt-10">
           <SolutionButton text={buttonText} href={buttonHref} />
         </div>
       )
