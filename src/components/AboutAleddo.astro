@@ -1,0 +1,138 @@
+---
+import SolutionCard from "./SolutionCard.astro";
+
+const aiCapabilities = [
+  "Predictive Analytics & Machine Learning Model Development",
+  "Computer Vision & Natural Language Processing (NLP)",
+  "Generative AI & AI-Powered RPA",
+  "Intelligent Document Processing & OCR Automation",
+];
+
+const dataCapabilities = [
+  "Enterprise Data Warehouse & Data Lake Architecture",
+  "Real-time Data Pipeline & ETL Automation",
+  "Business Intelligence & Custom Interactive Dashboards",
+  "Advanced Data Governance & Security Compliance",
+];
+---
+
+<section
+  id="about-aleddo-section"
+  class="relative w-full bg-brand-bg text-brand-text border-b border-brand-text/25"
+>
+  <div class="w-full flex flex-col lg:flex-row items-stretch">
+    <!-- Left Column: Sticky Heading aligned to top baseline of right section -->
+    <div
+      class="w-full lg:w-[28%] xl:w-[26%] lg:border-r border-brand-text/25 p-8 md:p-12 lg:p-16 xl:p-20 shrink-0 flex flex-col justify-start lg:min-h-screen"
+    >
+      <div class="lg:sticky lg:top-24 space-y-2">
+        <h2
+          class="about-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-brand-text"
+        >
+          <span class="block text-brand-text">About</span>
+          <span class="block text-brand-tertiary">Aleddo</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Right Column: Scrollable Content Area -->
+    <div class="w-full lg:w-[72%] xl:w-[74%] flex flex-col min-w-0">
+      <!-- About Paragraph Block (Matched padding & baseline alignment) -->
+      <div
+        class="about-paragraph-block w-full p-8 md:p-12 lg:p-16 xl:p-20 border-b border-brand-text/25 flex items-start justify-start min-h-[340px] md:min-h-[400px] lg:min-h-[460px]"
+      >
+        <p
+          class="max-w-2xl lg:max-w-3xl text-base md:text-lg lg:text-xl xl:text-2xl text-brand-text/85 leading-relaxed"
+        >
+          At <strong class="text-brand-text font-semibold">Aleddo</strong>, we
+          are your dedicated, one-stop IT solution partner. We believe
+          technology should work for your business, not add complexity to it.
+          Whether you are looking to harness the power of modern AI, untangle
+          complex data, or build software tailored to your specific operations,
+          our goal is simple: deliver high-performance, scalable solutions that
+          drive real results, automate repetitive tasks, and empower your team
+          to focus on what matters most.
+        </p>
+      </div>
+
+      <!-- Solutions Component 1: Custom AI Solutions -->
+      <SolutionCard
+        title="Custom AI Solutions"
+        description="We build tailored artificial intelligence applications that automate, optimize, and scale your operations from the ground up."
+        capabilities={aiCapabilities}
+        buttonText="Evolve"
+        buttonHref="#"
+        bgImage="/images/ai_robot_solution_bg.png"
+      />
+
+      <!-- Solutions Component 2: Enterprise Data Solutions (Demonstrates component reusability) -->
+      <SolutionCard
+        title="Data Engineering & Analytics"
+        description="Transform raw, complex data streams into structured actionable insights with modern data architectures."
+        capabilities={dataCapabilities}
+        buttonText="Explore Data"
+        buttonHref="#"
+        bgImage="/images/ai_robot_solution_bg.png"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initAboutAnimation = () => {
+    const section = document.getElementById("about-aleddo-section");
+    if (!section) return;
+
+    const heading = section.querySelector(".about-heading");
+    const paragraphBlock = section.querySelector(".about-paragraph-block");
+    const cards = section.querySelectorAll(".solution-card");
+
+    if (heading) gsap.set(heading, { y: 30, opacity: 0 });
+    if (paragraphBlock) gsap.set(paragraphBlock, { y: 30, opacity: 0 });
+    if (cards.length) gsap.set(cards, { y: 40, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      defaults: { ease: "power4.out" },
+    });
+
+    if (heading) {
+      tl.to(heading, { y: 0, opacity: 1, duration: 0.6 });
+    }
+
+    if (paragraphBlock) {
+      tl.to(paragraphBlock, { y: 0, opacity: 1, duration: 0.6 }, "-=0.4");
+    }
+
+    if (cards.length) {
+      cards.forEach((card) => {
+        gsap.to(card, {
+          y: 0,
+          opacity: 1,
+          duration: 0.65,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    }
+  };
+
+  if (document.readyState === "complete") {
+    initAboutAnimation();
+  } else {
+    window.addEventListener("load", initAboutAnimation);
+  }
+</script>

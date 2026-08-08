@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* Clash Grotesk Font Declarations */
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Variable.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Variable.woff') format('woff'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Extralight.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Extralight.woff') format('woff');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Light.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Regular.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Medium.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Semibold.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('/fonts/clash-grotesk/ClashGrotesk-Bold.woff2') format('woff2'),
+       url('/fonts/clash-grotesk/ClashGrotesk-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@theme {
+  /* Typography */
+  --font-sans: 'Clash Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-clash: 'Clash Grotesk', sans-serif;
+
+  /* Semantic Brand Colors */
+  --color-brand-bg: #03045A;
+  --color-brand-surface: #0A0C78;
+  --color-brand-elevated: #121696;
+  
+  --color-brand-text: #B9E6F2;
+  --color-brand-muted: #8BD4E7;
+  --color-brand-subtle: #55BDD8;
+
+  --color-brand-accent: #0096C7;
+  --color-brand-accent-hover: #00B4D8;
+  --color-brand-tertiary: #6FC7E1;
+  --color-tertiary: #6FC7E1;
+  --color-brand-border: rgba(185, 230, 242, 0.15);
+
+
+  /* Navy Scale (Primary Background Family) */
+  --color-navy-950: #010238;
+  --color-navy-900: #03045A; /* Primary BG */
+  --color-navy-800: #0A0C78;
+  --color-navy-700: #121696;
+  --color-navy-600: #1B20B5;
+  --color-navy-500: #262CD4;
+  --color-navy-400: #4F54E2;
+  --color-navy-300: #7A7EEA;
+  --color-navy-200: #A7A9F2;
+  --color-navy-100: #D3D4F9;
+  --color-navy-50:  #EFEFFD;
+
+  /* Ice Cyan Scale (Primary Text Family) */
+  --color-ice-950: #04161C;
+  --color-ice-900: #082933;
+  --color-ice-800: #0E4454;
+  --color-ice-700: #146177;
+  --color-ice-600: #1B7F9B;
+  --color-ice-500: #29A2C2;
+  --color-ice-400: #55BDD8;
+  --color-ice-300: #8BD4E7;
+  --color-ice-200: #B9E6F2; /* Primary Text */
+  --color-ice-100: #DCF3FA;
+  --color-ice-50:  #F2FAFD;
+}
