@@ -71,11 +71,11 @@ const biDataFeatures = [
   <div class="w-full flex flex-col lg:flex-row items-stretch">
     <!-- Left Column: Sticky Heading aligned to top baseline of right section -->
     <div
-      class="w-full lg:w-[28%] xl:w-[26%] lg:border-r border-brand-text/25 p-8 md:p-12 lg:p-16 xl:p-20 shrink-0 flex flex-col justify-start lg:min-h-screen"
+      class="w-full lg:w-[28%] xl:w-[26%] border-b lg:border-b-0 lg:border-r border-brand-text/25 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 shrink-0 flex flex-col justify-start lg:min-h-screen"
     >
       <div class="lg:sticky lg:top-24 space-y-2">
         <h2
-          class="about-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-brand-text"
+          class="about-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-brand-text flex flex-row space-x-3 lg:block"
         >
           <span class="block text-brand-text">About</span>
           <span class="block text-brand-tertiary">Aleddo</span>
@@ -87,10 +87,10 @@ const biDataFeatures = [
     <div class="w-full lg:w-[72%] xl:w-[74%] flex flex-col min-w-0">
       <!-- About Paragraph Block -->
       <div
-        class="about-paragraph-block w-full p-8 md:p-12 lg:p-16 xl:p-20 border-b border-brand-text/25 flex items-start justify-start min-h-[340px] md:min-h-[400px] lg:min-h-[460px]"
+        class="about-paragraph-block w-full p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 md:py-16 border-b border-brand-text/25 flex items-start justify-start min-h-0 lg:min-h-[460px]"
       >
         <p
-          class="max-w-2xl lg:max-w-3xl text-base md:text-lg lg:text-xl xl:text-2xl text-brand-text/85 leading-relaxed"
+          class="max-w-2xl lg:max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 leading-relaxed"
         >
           At <strong class="text-brand-text font-semibold">Aleddo</strong>, we
           are your dedicated, one-stop IT solution partner. We believe
@@ -110,14 +110,14 @@ const biDataFeatures = [
         capabilities={customAiCapabilities}
         buttonText="Evolve"
         buttonHref="#"
-        bgImage="/images/ai_robot_solution_bg.png"
+        bgImage="/images/ai_robot_solution_bg.webp"
       />
 
       <!-- Solution 2: AI Automation, Chatbots & Voice Agents -->
       <SolutionCard
         title="AI Automation, Chatbots & Voice Agents"
         subBlocks={aiAutomationSubBlocks}
-        bgImage="/images/ai_chatbot_voice_bg.png"
+        bgImage="/images/ai_chatbot_voice_bg.webp"
       />
 
       <!-- Solution 3: Custom Web & Software Development -->
@@ -127,7 +127,7 @@ const biDataFeatures = [
         features={webSoftwareFeatures}
         buttonText="Evolve"
         buttonHref="#"
-        bgImage="/images/custom_web_software_bg.png"
+        bgImage="/images/custom_web_software_bg.webp"
       />
 
       <!-- Solution 4: Business Intelligence, Advanced Analytics & Data Engineering -->
@@ -137,7 +137,7 @@ const biDataFeatures = [
         features={biDataFeatures}
         buttonText="Evolve"
         buttonHref="#"
-        bgImage="/images/bi_data_engineering_bg.png"
+        bgImage="/images/bi_data_engineering_bg.webp"
       />
     </div>
   </div>
