@@ -47,18 +47,48 @@ const {
 			crossorigin="anonymous"
 		/>
 		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={Astro.url.href} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#03045A" />
 
 		<!-- OpenGraph / Social Metadata -->
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="Aleddo Technologies" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+
+		<!-- JSON-LD Structured Data for Enterprise AI & Services -->
+		<script type="application/ld+json" is:inline>
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				"name": "Aleddo Technologies",
+				"url": "https://aleddotechnologies.com",
+				"logo": "https://aleddotechnologies.com/favicon.svg",
+				"description": "Bespoke AI applications, workflow automation, custom software, and enterprise data engineering for clients in regulated industries.",
+				"address": [
+					{
+						"@type": "PostalAddress",
+						"streetAddress": "6th Floor, Meydan Grandstand, Meydan Road, Nad Al Sheba",
+						"addressLocality": "Dubai",
+						"addressCountry": "AE"
+					},
+					{
+						"@type": "PostalAddress",
+						"addressLocality": "Ernakulam",
+						"addressRegion": "Kerala",
+						"addressCountry": "IN"
+					}
+				],
+				"telephone": "+971502978387",
+				"email": "contact@aleddotechnologies.com"
+			}
+		</script>
 	</head>
 	<body class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen flex flex-col selection:bg-brand-tertiary selection:text-brand-bg">
 		<!-- Skip to Main Content Link for Accessibility -->

@@ -11,45 +11,47 @@ import Footer from "../components/Footer.astro";
     id="main-content"
     class="relative w-full bg-brand-bg text-brand-text overflow-hidden min-h-screen flex flex-col justify-between"
   >
-    <!-- Contact Hero Section (Grid Aligned, No Glow/Halo) -->
+    <!-- Contact Hero Section (Compact Height on Mobile, Full Height on Desktop) -->
     <section
       id="contact-hero-section"
-      class="relative z-10 w-full border-b border-brand-text/25"
+      class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-73px)] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0"
     >
-      <div class="w-full flex flex-col md:flex-row items-stretch relative">
+      <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
         <!-- Left Side Text Block -->
         <div
-          class="w-full md:w-[58%] lg:w-[58%] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center space-y-4 relative"
+          class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full"
         >
           <h1
-            class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-brand-text leading-tight"
+            class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
           >
-            <span class="block text-brand-text">Let's Build Something</span>
-            <span class="block text-brand-tertiary">Extraordinary</span>
+            <span class="block text-brand-text">Get in</span>
+            <span class="block text-brand-tertiary">Touch</span>
           </h1>
           <p
-            class="contact-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-light leading-relaxed max-w-2xl pt-2"
+            class="contact-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-2"
           >
-            Have a vision in mind, need tailored AI solutions, or want to discuss enterprise tech strategy? Get in touch with our teams in Dubai and India.
+            Have a vision in mind, need tailored AI solutions, or want to discuss enterprise tech strategy? Connect with our teams in Dubai and India.
           </p>
 
-          <!-- Vertical Divider (Desktop) -->
+          <!-- Full-Height Vertical Divider (Desktop) -->
           <div
-            class="contact-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden md:block origin-top"
+            class="contact-line-v absolute inset-y-0 right-0 w-px bg-brand-text/25 hidden lg:block origin-top"
           ></div>
         </div>
 
-        <!-- Right Side Image Block (Grid aligned, no glow) -->
+        <!-- Right Side Image Block (Desktop only - hidden on mobile) -->
         <div
-          class="w-full md:w-[42%] lg:w-[42%] relative overflow-hidden flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12 bg-brand-bg"
+          class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-8 lg:p-12 bg-brand-bg"
         >
           <div
-            class="relative w-full h-full min-h-[220px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-[380px] border border-brand-text/25 overflow-hidden"
+            class="relative w-full h-full max-h-[82%] border border-brand-text/25 overflow-hidden"
           >
             <img
               src="/images/contact_extraordinary_bg.webp"
               alt="Aleddo AI Matrix Graphic"
-              class="contact-hero-image w-full h-full object-cover object-center opacity-0"
+              loading="eager"
+              decoding="async"
+              class="contact-hero-image w-full h-full object-cover object-center"
             />
           </div>
         </div>
@@ -112,19 +114,13 @@ import Footer from "../components/Footer.astro";
               </div>
             </div>
 
-            <!-- Full-Bleed Horizontal Divider Line Touching Both Outer Borders -->
-            <div
-              class="relative my-8 sm:my-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] md:w-[calc(100%+7rem)] lg:w-[calc(100%+8rem)] -ml-6 sm:-ml-10 md:-ml-14 lg:-ml-16 h-px bg-brand-text/25 overflow-hidden"
-            >
-              <div
-                class="contact-line-h absolute inset-0 bg-brand-text/25 origin-left"
-              ></div>
-            </div>
+            <!-- Horizontal Line Divider -->
+            <div class="contact-line-h w-full h-px bg-brand-text/25 my-6"></div>
 
-            <!-- India Office -->
-            <div class="contact-info-card space-y-3 pt-2">
+            <!-- Kerala, India Office -->
+            <div class="contact-info-card space-y-3 py-6 sm:py-8">
               <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">
-                India
+                Kerala, India
               </h3>
               <div class="space-y-1">
                 <p class="text-xl sm:text-2xl font-bold text-brand-text">
@@ -161,20 +157,11 @@ import Footer from "../components/Footer.astro";
             </div>
           </div>
 
-          <!-- Full-Bleed Horizontal Divider Line Above Connect With Us -->
-          <div
-            class="relative my-8 sm:my-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] md:w-[calc(100%+7rem)] lg:w-[calc(100%+8rem)] -ml-6 sm:-ml-10 md:-ml-14 lg:-ml-16 h-px bg-brand-text/25 overflow-hidden"
-          >
-            <div
-              class="contact-line-h absolute inset-0 bg-brand-text/25 origin-left"
-            ></div>
-          </div>
-
-          <!-- Social & Messaging Channels -->
-          <div class="space-y-4 pt-2">
-            <h3 class="text-xs uppercase tracking-widest text-brand-text/60 font-semibold">
-              Connect With Us
-            </h3>
+          <!-- Social Channels Row -->
+          <div class="contact-info-card pt-8 border-t border-brand-text/15 space-y-3">
+            <h4 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">
+              Direct Channels
+            </h4>
             <div
               class="flex flex-wrap items-center gap-6 sm:gap-8 text-base sm:text-lg font-semibold text-brand-text/85"
             >
@@ -278,62 +265,51 @@ import Footer from "../components/Footer.astro";
               <label
                 class="block text-sm font-semibold text-brand-text/90 tracking-wide uppercase"
               >
-                Services Interested In
+                Area of Interest
               </label>
-              <div class="flex flex-wrap gap-2.5 sm:gap-3">
+              <div class="flex flex-wrap gap-2.5">
                 <label class="cursor-pointer">
                   <input
                     type="checkbox"
                     name="services"
-                    value="Custom AI Solutions"
-                    class="peer hidden"
+                    value="advisory"
+                    class="peer sr-only"
                   />
-                  <span
-                    class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary peer-focus-visible:ring-2 peer-focus-visible:ring-brand-tertiary transition-all"
-                  >
-                    Custom AI Solutions
+                  <span class="px-4 py-2 text-sm font-mono font-medium text-brand-text/80 bg-brand-surface/40 border border-brand-text/25 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all block">
+                    Advisory & Consulting
                   </span>
                 </label>
-
                 <label class="cursor-pointer">
                   <input
                     type="checkbox"
                     name="services"
-                    value="AI Automation & Voice"
-                    class="peer hidden"
+                    value="training"
+                    class="peer sr-only"
                   />
-                  <span
-                    class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary peer-focus-visible:ring-2 peer-focus-visible:ring-brand-tertiary transition-all"
-                  >
-                    AI Automation & Voice
+                  <span class="px-4 py-2 text-sm font-mono font-medium text-brand-text/80 bg-brand-surface/40 border border-brand-text/25 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all block">
+                    Training & Upskill
                   </span>
                 </label>
-
                 <label class="cursor-pointer">
                   <input
                     type="checkbox"
                     name="services"
-                    value="Custom Web & Software"
-                    class="peer hidden"
+                    value="core-dev"
+                    class="peer sr-only"
                   />
-                  <span
-                    class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary peer-focus-visible:ring-2 peer-focus-visible:ring-brand-tertiary transition-all"
-                  >
-                    Custom Web & Software
+                  <span class="px-4 py-2 text-sm font-mono font-medium text-brand-text/80 bg-brand-surface/40 border border-brand-text/25 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all block">
+                    Core Development
                   </span>
                 </label>
-
                 <label class="cursor-pointer">
                   <input
                     type="checkbox"
                     name="services"
-                    value="Data Engineering & BI"
-                    class="peer hidden"
+                    value="governance"
+                    class="peer sr-only"
                   />
-                  <span
-                    class="inline-block px-4 py-2.5 border border-brand-text/25 text-sm sm:text-base font-medium text-brand-text/80 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary peer-focus-visible:ring-2 peer-focus-visible:ring-brand-tertiary transition-all"
-                  >
-                    Data Engineering & BI
+                  <span class="px-4 py-2 text-sm font-mono font-medium text-brand-text/80 bg-brand-surface/40 border border-brand-text/25 peer-checked:bg-brand-tertiary peer-checked:text-brand-bg peer-checked:border-brand-tertiary transition-all block">
+                    AI Governance & MLOps
                   </span>
                 </label>
               </div>
@@ -364,7 +340,7 @@ import Footer from "../components/Footer.astro";
                 id="submit-btn"
                 class="inline-flex items-center justify-between px-8 py-4 sm:px-10 sm:py-4.5 bg-brand-tertiary text-brand-bg font-semibold text-base sm:text-lg tracking-wide hover:bg-brand-muted focus-visible:outline-2 focus-visible:outline-brand-tertiary focus-visible:outline-offset-2 transition-all duration-300 group shadow-lg cursor-pointer"
               >
-                <span class="mr-6 font-semibold">Send Message</span>
+                <span class="mr-6 font-semibold">Book a Discovery Call</span>
                 <svg
                   class="w-5 h-5 sm:w-6 sm:h-6 stroke-current transition-transform duration-300 group-hover:translate-x-2"
                   fill="none"

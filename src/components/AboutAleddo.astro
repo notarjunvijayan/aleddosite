@@ -1,150 +1,106 @@
 ---
-import SolutionCard from "./SolutionCard.astro";
+import SolutionButton from "./SolutionButton.astro";
 
-// 1. Custom AI Solutions Capabilities
-const customAiCapabilities = [
-  "Predictive Analytics & Machine Learning Model Development",
-  "Computer Vision & Natural Language Processing (NLP)",
-  "Generative AI & AI-Powered RPA",
-  "Intelligent Document Processing & OCR Automation",
-];
-
-// 2. AI Automation, Chatbots & Voice Agents Sub-Blocks
-const aiAutomationSubBlocks = [
+const capabilities = [
   {
-    title: "Document & Workflow Automation",
+    title: "Automate the Queue",
     description:
-      "Automatically extract, validate, and route data from PDFs, scanned forms, invoices, and Excel spreadsheets using custom business rules.\n\nException handling flags edge cases for human review while routine tasks move forward automatically.",
-    buttonText: "Evolve",
-    buttonHref: "#",
+      "Conversational AI, RPA, and agentic workflows that clear repetitive operational work end to end.",
+    tags: ["Conversational AI", "RPA", "Agentic AI"],
   },
   {
-    title: "Agentic AI, Chatbots & Voice Agents",
-    features: [
-      {
-        label: "Customer Support Agents",
-        text: 'Handle complex inquiries (e.g., "Where is my order?" or "How do I request a quote?") using NLP and RAG. Trained on your specific domain with seamless human-agent handoffs mid-conversation.',
-      },
-      {
-        label: "Internal Assistants",
-        text: "Allow employees to query operational data using plain language or execute internal requests (e.g., filing leave applications) directly through conversational interfaces.",
-      },
-    ],
-    buttonText: "Evolve",
-    buttonHref: "#",
-  },
-];
-
-// 3. Custom Web & Software Development Features
-const webSoftwareFeatures = [
-  {
-    label: "Tailored Applications",
-    text: "From specialized internal tools to enterprise-grade platforms.",
+    title: "Predict the Outcome",
+    description:
+      "Forecasting, risk scoring, and anomaly detection calibrated precisely to a decision threshold.",
+    tags: ["Forecasting", "Risk Scoring", "Anomaly Detection"],
   },
   {
-    label: "Built to Scale",
-    text: "Designed for peak performance, security, and effortless scaling as your user base grows.",
-  },
-];
-
-// 4. Business Intelligence & Data Engineering Features
-const biDataFeatures = [
-  {
-    label: "Real-time Visibility",
-    text: "Dashboards and reports that accurately reflect your daily operational reality.",
+    title: "Read the Paperwork",
+    description:
+      "Document intelligence with confidence scoring and an automated human review queue below threshold.",
+    tags: ["Extraction", "Validation", "Review Queue"],
   },
   {
-    label: "Automated Reporting",
-    text: "Eliminate weekly manual data collection and reporting.",
-  },
-  {
-    label: "Scalable Data Architecture",
-    text: "Infrastructure built to handle long-term growth without breaking under pressure.",
+    title: "Govern the Estate",
+    description:
+      "Model inventories, evaluation records, and MLOps monitoring mapped to recognized frameworks.",
+    tags: ["NIST AI RMF", "ISO 42001", "Monitoring"],
   },
 ];
 ---
 
 <section
   id="about-aleddo-section"
-  class="relative w-full bg-brand-bg text-brand-text border-b border-brand-text/25"
+  class="relative w-full bg-brand-bg text-brand-text border-b border-brand-text/30 overflow-hidden"
 >
   <div class="w-full flex flex-col lg:flex-row items-stretch relative">
-    <!-- Left Column: Sticky Heading aligned to top baseline of right section -->
+    <!-- Left Column: Heading & Subtext (Moved from top right) -->
     <div
-      class="w-full lg:w-[28%] xl:w-[26%] border-b lg:border-b-0 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 shrink-0 flex flex-col justify-start lg:min-h-screen relative"
+      class="w-full lg:w-[32%] xl:w-[30%] border-b lg:border-b-0 border-r-0 lg:border-r border-brand-text/30 p-6 sm:p-8 md:p-12 lg:p-14 shrink-0 flex flex-col justify-start relative bg-brand-bg"
     >
-      <div class="lg:sticky lg:top-24 space-y-2">
+      <div class="lg:sticky lg:top-24 space-y-4">
         <h2
-          class="about-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight text-brand-text flex flex-row space-x-3 lg:block"
+          class="about-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-brand-text"
         >
-          <span class="block text-brand-text">About</span>
-          <span class="block text-brand-tertiary">Aleddo</span>
+          <span class="block text-brand-text">What We Build,</span>
+          <span class="block text-brand-tertiary">in a Nutshell</span>
         </h2>
-      </div>
-
-      <!-- Animated Vertical Dividing Line (Desktop) -->
-      <div class="about-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden lg:block origin-top"></div>
-    </div>
-
-    <!-- Right Column: Scrollable Content Area -->
-    <div class="w-full lg:w-[72%] xl:w-[74%] flex flex-col min-w-0">
-      <!-- About Paragraph Block -->
-      <div
-        class="about-paragraph-block w-full p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 py-8 sm:py-10 md:py-16 flex items-start justify-start min-h-0 lg:min-h-[460px] relative"
-      >
         <p
-          class="max-w-2xl lg:max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 leading-relaxed"
+          class="text-base sm:text-lg lg:text-xl text-brand-text/85 font-normal leading-relaxed pt-1"
         >
           At <strong class="text-brand-text font-semibold">Aleddo</strong>, we
-          are your dedicated, one-stop IT solution partner. We believe
-          technology should work for your business, not add complexity to it.
-          Whether you are looking to harness the power of modern AI, untangle
-          complex data, or build software tailored to your specific operations,
-          our goal is simple: deliver high-performance, scalable solutions that
-          drive real results, automate repetitive tasks, and empower your team
-          to focus on what matters most.
+          ship custom AI models, agentic workflows, and automated decision
+          systems engineered for clients in regulated industries.
         </p>
 
-        <!-- Animated Horizontal Line under Paragraph -->
-        <div class="about-line-h absolute bottom-0 inset-x-0 h-px bg-brand-text/25 origin-left"></div>
+        <div class="pt-4">
+          <SolutionButton text="Explore Services" href="/services" />
+        </div>
       </div>
+    </div>
 
-      <!-- Solution 1: Custom AI Solutions -->
-      <SolutionCard
-        title="Custom AI Solutions"
-        description="We build tailored artificial intelligence applications that automate, optimize, and scale your operations from the ground up."
-        capabilities={customAiCapabilities}
-        buttonText="Evolve"
-        buttonHref="#"
-        bgImage="/images/ai_robot_solution_bg.webp"
-      />
+    <!-- Right Column: 2x2 Capabilities Grid Starting Directly at Top -->
+    <div class="w-full lg:w-[68%] xl:w-[70%] flex flex-col min-w-0">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 w-full relative divide-y md:divide-y-0 border-b border-brand-text/30"
+      >
+        {
+          capabilities.map((cap, idx) => (
+            <div
+              class={`about-card p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-6 bg-brand-bg hover:bg-brand-surface/15 transition-colors border-b ${idx % 2 === 0 ? "md:border-r border-brand-text/30" : "border-brand-text/30"}`}
+            >
+              <div class="space-y-3">
+                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-brand-text">
+                  {cap.title}
+                </h3>
+                <p class="text-base sm:text-lg text-brand-text/80 leading-relaxed">
+                  {cap.description}
+                </p>
+              </div>
 
-      <!-- Solution 2: AI Automation, Chatbots & Voice Agents -->
-      <SolutionCard
-        title="AI Automation, Chatbots & Voice Agents"
-        subBlocks={aiAutomationSubBlocks}
-        bgImage="/images/ai_chatbot_voice_bg.webp"
-      />
+              <div class="space-y-4 pt-2">
+                <div class="flex flex-wrap gap-2.5">
+                  {cap.tags.map((tag) => (
+                    <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-      <!-- Solution 3: Custom Web & Software Development -->
-      <SolutionCard
-        title="Custom Web & Software Development"
-        description="Off-the-shelf software often forces you to compromise your processes. We engineer custom web and software solutions built specifically around how your business functions."
-        features={webSoftwareFeatures}
-        buttonText="Evolve"
-        buttonHref="#"
-        bgImage="/images/custom_web_software_bg.webp"
-      />
-
-      <!-- Solution 4: Business Intelligence, Advanced Analytics & Data Engineering -->
-      <SolutionCard
-        title="Business Intelligence, Advanced Analytics & Data Engineering"
-        description="Most businesses are sitting on more data than they know what to do with. We transform raw data into actionable insights using industry-leading tools like Power BI, Tableau, and Alteryx."
-        features={biDataFeatures}
-        buttonText="Evolve"
-        buttonHref="#"
-        bgImage="/images/bi_data_engineering_bg.webp"
-      />
+                <div>
+                  <a
+                    href="/services"
+                    class="inline-flex items-center text-brand-text/85 hover:text-brand-tertiary text-sm sm:text-base font-medium transition-colors duration-300 py-1.5 border-b border-transparent hover:border-brand-tertiary group"
+                  >
+                    <span>Explore Capability</span>
+                    <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
@@ -156,20 +112,16 @@ const biDataFeatures = [
   gsap.registerPlugin(ScrollTrigger);
 
   const initAboutAnimation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const section = document.getElementById("about-aleddo-section");
     if (!section) return;
 
-    const lineV = section.querySelector(".about-line-v");
-    const linesH = section.querySelectorAll(".about-line-h");
     const heading = section.querySelector(".about-heading");
-    const paragraphBlock = section.querySelector(".about-paragraph-block");
-    const cards = section.querySelectorAll(".solution-card");
+    const cards = section.querySelectorAll(".about-card");
 
-    // Set initial states for snappy entrance
-    if (lineV) gsap.set(lineV, { scaleY: 0, transformOrigin: "top center" });
-    if (linesH.length) gsap.set(linesH, { scaleX: 0, transformOrigin: "left center" });
-    if (heading) gsap.set(heading, { y: 25, opacity: 0 });
-    if (paragraphBlock) gsap.set(paragraphBlock, { y: 25, opacity: 0 });
+    if (heading) gsap.set(heading, { y: 20, opacity: 0 });
+    if (cards.length) gsap.set(cards, { y: 20, opacity: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -180,66 +132,16 @@ const biDataFeatures = [
       defaults: { ease: "power4.out" },
     });
 
-    // 1. Line draw vertical line
-    if (lineV) {
-      tl.to(lineV, { scaleY: 1, duration: 0.5 });
-    }
-
-    // 2. Line draw horizontal lines
-    if (linesH.length) {
-      tl.to(linesH, { scaleX: 1, duration: 0.45, stagger: 0.08 }, "-=0.35");
-    }
-
-    // 3. Reveal heading and paragraph
     if (heading) {
-      tl.to(heading, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+      tl.to(heading, { y: 0, opacity: 1, duration: 0.4 });
     }
 
-    if (paragraphBlock) {
-      tl.to(paragraphBlock, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
-    }
-
-    // 4. Snappy staggered entrance for each Solution Card
     if (cards.length) {
-      cards.forEach((card) => {
-        const cardImg = card.querySelector("img");
-        const cardTitle = card.querySelector("h3");
-        const cardDesc = card.querySelectorAll("p, ul, h4");
-        const cardLine = card.querySelector(".absolute.bottom-0");
-
-        gsap.set(card, { y: 30, opacity: 0 });
-        if (cardImg) gsap.set(cardImg, { scale: 1.08 });
-        if (cardTitle) gsap.set(cardTitle, { y: 15, opacity: 0 });
-        if (cardDesc.length) gsap.set(cardDesc, { y: 12, opacity: 0 });
-        if (cardLine) gsap.set(cardLine, { scaleX: 0, transformOrigin: "left center" });
-
-        const cardTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-          defaults: { ease: "power4.out" },
-        });
-
-        cardTl.to(card, { y: 0, opacity: 1, duration: 0.45 });
-
-        if (cardLine) {
-          cardTl.to(cardLine, { scaleX: 1, duration: 0.4 }, "-=0.35");
-        }
-
-        if (cardImg) {
-          cardTl.to(cardImg, { scale: 1, duration: 0.8, ease: "power2.out" }, "-=0.45");
-        }
-
-        if (cardTitle) {
-          cardTl.to(cardTitle, { y: 0, opacity: 1, duration: 0.35 }, "-=0.7");
-        }
-
-        if (cardDesc.length) {
-          cardTl.to(cardDesc, { y: 0, opacity: 1, duration: 0.35, stagger: 0.04 }, "-=0.3");
-        }
-      });
+      tl.to(
+        cards,
+        { y: 0, opacity: 1, duration: 0.35, stagger: 0.06 },
+        "-=0.25",
+      );
     }
   };
 

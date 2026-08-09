@@ -1,0 +1,413 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Footer from "../components/Footer.astro";
+
+// 1. Three Pillars Data
+const pillars = [
+  {
+    title: "Advisory & Consulting",
+    subtitle: "Decide what to adopt, and prove it is defensible.",
+    description:
+      "AI strategy, AI governance against NIST AI RMF, DFSA, GDPR and ISO 42001, data residency planning, and adoption roadmaps that survive a risk committee.",
+    capabilities: [
+      "AI readiness and opportunity assessment",
+      "Governance, risk and compliance frameworks for AI",
+      "Data residency and deployment-model planning",
+      "Phased adoption roadmaps with named owners",
+    ],
+  },
+  {
+    title: "Training & Upskill",
+    subtitle: "Leave your team able to run it without us.",
+    description:
+      "Executive briefings and hands-on enablement across AI, MLOps, data analytics and AI readiness, with curricula tailored to the team in the room.",
+    capabilities: [
+      "Executive and board-level AI briefings",
+      "Team enablement in AI, MLOps and analytics",
+      "Tailored curricula for enterprises and education partners",
+      "Internal capability building and certification paths",
+    ],
+  },
+  {
+    title: "Core Development",
+    subtitle: "Build the thing, in your environment.",
+    description:
+      "Bespoke AI and ML solutions, business intelligence and analytics, data engineering, and custom web and software engineering.",
+    capabilities: [
+      "Bespoke AI/ML solution development",
+      "BI & analytics on Power BI, Tableau and Alteryx",
+      "Data engineering and MLOps foundations",
+      "Custom web and software engineering",
+    ],
+  },
+];
+
+// 2. Core Development Outcomes Breakdown Data
+const coreOutcomes = [
+  {
+    category: "Automate",
+    goal: "Take repetitive, rule-heavy and conversation-heavy work off your team.",
+    services: [
+      {
+        title: "Conversational AI",
+        subtitle: "Assistants that hold context across a real customer or employee conversation.",
+        description:
+          "Retrieval-grounded assistants built on domain-adapted models, fine-tuned with LoRA and aligned with RLHF where the tone and policy boundaries matter. Deployed against your knowledge base with citation and escalation paths, not as an open-ended chatbot.",
+        tags: ["LoRA", "RLHF", "RAG", "Quantisation", "Escalation design"],
+        image: "/images/ai_chatbot_voice_bg.webp",
+      },
+      {
+        title: "Process Automation / RPA",
+        subtitle: "Straight-through processing for the workflows that still move on email and spreadsheets.",
+        description:
+          "Orchestrated automation across systems of record, combining rules, ML classification and human-in-the-loop checkpoints so exceptions route to a person instead of failing silently.",
+        tags: ["Straight-through processing", "Exception routing", "Human-in-the-loop", "ERP/CRM integration"],
+        image: "/images/custom_web_software_bg.webp",
+      },
+      {
+        title: "Agentic AI",
+        subtitle: "Multi-step agents that carry a task through several systems.",
+        description:
+          "Planner-executor architectures with tool use, guardrails, action logging and rollback. Every action an agent takes is recorded against the workflow so the behaviour is auditable after the fact.",
+        tags: ["Planner-executor", "Tool use", "Guardrails", "Action logging"],
+        image: "/images/ai_robot_solution_bg.webp",
+      },
+    ],
+  },
+  {
+    category: "Predict",
+    goal: "Turn historical data into decisions your operators actually act on.",
+    services: [
+      {
+        title: "Predictive Analytics",
+        subtitle: "Forecasting, risk scoring and anomaly detection tied to a business threshold.",
+        description:
+          "Gradient-boosted and deep models for forecasting and scoring, isolation forests for anomaly and fraud signals, with calibration so a score maps to an action rather than a vague ranking.",
+        tags: ["Isolation forests", "Gradient boosting", "Calibration", "Drift monitoring"],
+        image: "/images/ai_robot_solution_bg.webp",
+      },
+      {
+        title: "Custom Model Development",
+        subtitle: "Models built for your data when a general-purpose one will not hold.",
+        description:
+          "Architecture selection, domain adaptation, evaluation harnesses and quantised deployment for on-premise or constrained environments, with documented evaluation baselines.",
+        tags: ["Domain adaptation", "Evaluation harness", "Quantisation", "On-prem serving"],
+        image: "/images/custom_web_software_bg.webp",
+      },
+    ],
+  },
+  {
+    category: "Understand documents",
+    goal: "Get structured, verifiable data out of the paperwork that runs your business.",
+    services: [
+      {
+        title: "Document Intelligence",
+        subtitle: "Extraction and validation across contracts, claims, statements and trade paperwork.",
+        description:
+          "Layout-aware extraction with confidence scoring, field-level validation against your master data, and a review queue for anything under threshold so nothing unverified enters a downstream system.",
+        tags: ["Layout-aware OCR", "Field validation", "Confidence thresholds", "Review queue"],
+        image: "/images/contact_extraordinary_bg.webp",
+      },
+    ],
+  },
+  {
+    category: "See & detect",
+    goal: "Apply vision where a human currently has to watch, count or inspect.",
+    services: [
+      {
+        title: "Computer Vision & Image Recognition",
+        subtitle: "Detection, classification and inspection on live or archived imagery.",
+        description:
+          "Detection and segmentation models trained on your own imagery, deployed at the edge or in your datacentre, with drift checks for changing lighting, camera and site conditions.",
+        tags: ["Detection", "Segmentation", "Edge deployment", "Condition drift"],
+        image: "/images/ai_robot_solution_bg.webp",
+      },
+    ],
+  },
+  {
+    category: "Govern & monitor",
+    goal: "Make the AI estate explainable to auditors, regulators and your own board.",
+    services: [
+      {
+        title: "AI Governance, Risk & Compliance",
+        subtitle: "Controls, documentation and monitoring for every model in production.",
+        description:
+          "Model inventories, risk classification, evaluation records and monitoring dashboards structured against NIST AI RMF and ISO 42001, with DFSA and GDPR considerations mapped where they apply.",
+        tags: ["NIST AI RMF", "ISO 42001", "DFSA", "GDPR", "Model inventory"],
+        image: "/images/contact_extraordinary_bg.webp",
+      },
+    ],
+  },
+  {
+    category: "Data foundations",
+    goal: "The pipelines and platform work that decides whether anything above survives contact with production.",
+    services: [
+      {
+        title: "Data Engineering & MLOps",
+        subtitle: "Pipelines, lineage and lifecycle tooling underneath the models.",
+        description:
+          "Batch and streaming pipelines on Airflow, dbt and Spark, with Kafka and Flink where latency matters. Feature stores, lineage, CI/CD for models, and reproducible retraining.",
+        tags: ["Airflow", "dbt", "Spark", "Kafka", "Flink", "CI/CD for models"],
+        image: "/images/bi_data_engineering_bg.webp",
+      },
+      {
+        title: "Business Intelligence & Analytics",
+        subtitle: "Reporting your operators trust enough to run the week on.",
+        description:
+          "Semantic models and dashboards in Power BI, Tableau and Alteryx, built on governed data rather than exported spreadsheets, with definitions agreed before a single chart is drawn.",
+        tags: ["Power BI", "Tableau", "Alteryx", "Semantic models"],
+        image: "/images/bi_data_engineering_bg.webp",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Services | Aleddo Technologies">
+  <Navbar />
+
+  <main id="main-content" class="flex-1 w-full bg-brand-bg text-brand-text">
+    <!-- Hero Header Section (Compact Height on Mobile, Full Height on Desktop) -->
+    <section class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-73px)] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
+      <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
+        <!-- Left Text Content -->
+        <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full">
+          <h1
+            class="services-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
+          >
+            <span class="block text-brand-text">Enterprise</span>
+            <span class="block text-brand-tertiary">Services</span>
+          </h1>
+          <p
+            class="services-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-2"
+          >
+            Three pillars. One outcome: AI you can defend in front of a regulator. Advisory sets the direction, Training carries your people, and Core Development builds the thing.
+          </p>
+
+          <!-- Full-Height Vertical Divider (Desktop) -->
+          <div class="services-line-v absolute inset-y-0 right-0 w-px bg-brand-text/25 hidden lg:block origin-top"></div>
+        </div>
+
+        <!-- Right Side Image Placeholder (Desktop only - hidden on mobile) -->
+        <div class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-8 lg:p-12 bg-brand-bg">
+          <div class="relative w-full h-full max-h-[82%] border border-brand-text/25 overflow-hidden">
+            <img
+              src="/images/ai_robot_solution_bg.webp"
+              alt="Aleddo Services Architecture Graphic"
+              loading="eager"
+              decoding="async"
+              class="services-hero-image w-full h-full object-cover object-center"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Pillars Section -->
+    <section id="pillars-section" class="relative w-full border-b border-brand-text/25">
+      <div class="grid grid-cols-1 lg:grid-cols-3 w-full relative divide-y lg:divide-y-0 lg:divide-x divide-brand-text/25">
+        {
+          pillars.map((p) => (
+            <div class="pillar-card p-8 sm:p-10 lg:p-14 space-y-4 bg-brand-bg hover:bg-brand-surface/20 transition-colors relative">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-text">
+                {p.title}
+              </h3>
+              <p class="text-base sm:text-lg lg:text-xl font-semibold text-brand-tertiary">
+                {p.subtitle}
+              </p>
+              <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed">
+                {p.description}
+              </p>
+              <div class="pt-2">
+                <span class="text-xs uppercase tracking-widest text-brand-tertiary font-mono font-medium">
+                  {p.tag}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Core Development Breakdown Section -->
+    <section id="core-dev-section" class="relative w-full">
+      <div class="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20 pb-10 border-b border-brand-text/25">
+        <div class="max-w-4xl space-y-3">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight">
+            <span class="block text-brand-text">Core Development</span>
+            <span class="block text-brand-tertiary">Grouped by Outcome</span>
+          </h2>
+          <p class="text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-1">
+            Production-grade intelligence deployed directly into your architecture.
+          </p>
+        </div>
+      </div>
+
+      <!-- Outcomes Breakdown Grid -->
+      {
+        coreOutcomes.map((outcome) => (
+          <div class="outcome-block w-full flex flex-col lg:flex-row items-stretch relative border-b last:border-b-0 border-brand-text/25">
+            <!-- Left Sticky Category Column -->
+            <div class="w-full lg:w-[32%] xl:w-[30%] p-8 sm:p-10 lg:p-14 border-b lg:border-b-0 shrink-0 flex flex-col justify-start relative bg-brand-bg">
+              <div class="lg:sticky lg:top-24 space-y-4">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-text">
+                  {outcome.category}
+                </h3>
+                <p class="text-lg sm:text-xl text-brand-tertiary font-semibold leading-relaxed">
+                  {outcome.goal}
+                </p>
+              </div>
+
+              <!-- Vertical Divider (Desktop) -->
+              <div class="outcome-line-v absolute top-0 right-0 w-px h-full bg-brand-text/25 hidden lg:block origin-top"></div>
+            </div>
+
+            <!-- Right Services List with Visual Depth & Crisp AI Graphic Frames (Image above on mobile) -->
+            <div class="w-full lg:w-[68%] xl:w-[70%] divide-y divide-brand-text/25 flex flex-col min-w-0">
+              {outcome.services.map((svc) => (
+                <div class="service-card p-8 sm:p-10 lg:p-14 hover:bg-brand-surface/15 transition-colors">
+                  <div class="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
+                    <!-- Text Content & Tags -->
+                    <div class="w-full lg:w-[60%] xl:w-[62%] space-y-6">
+                      <div class="space-y-2.5">
+                        <h4 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                          {svc.title}
+                        </h4>
+                        <p class="text-lg sm:text-xl font-semibold text-brand-tertiary">
+                          {svc.subtitle}
+                        </p>
+                      </div>
+
+                      <p class="text-base sm:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+                        {svc.description}
+                      </p>
+
+                      <div class="flex flex-wrap gap-2.5 pt-2">
+                        {svc.tags.map((tag) => (
+                          <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25 rounded-none">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <!-- Right Side Crisp AI Graphic Image Frame -->
+                    {svc.image && (
+                      <div class="w-full lg:w-[40%] xl:w-[38%] shrink-0">
+                        <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3] border border-brand-text/25 overflow-hidden group shadow-xl">
+                          <img
+                            src={svc.image}
+                            alt={svc.title}
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <!-- CTA Section -->
+    <CtaSection />
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initServicesPageAnimations = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // 1. Hero Animations
+    const heroTitle = document.querySelector(".services-title");
+    const heroSubtitle = document.querySelector(".services-subtitle");
+    const heroLineV = document.querySelector(".services-line-v");
+    const heroImage = document.querySelector(".services-hero-image");
+
+    if (heroLineV) gsap.set(heroLineV, { scaleY: 0, transformOrigin: "top center" });
+    if (heroTitle) gsap.set(heroTitle, { y: 25, opacity: 0 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { y: 20, opacity: 0 });
+    if (heroImage) gsap.set(heroImage, { opacity: 0 });
+
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    if (heroLineV) {
+      heroTl.to(heroLineV, { scaleY: 1, duration: 0.5 });
+    }
+    if (heroTitle) {
+      heroTl.to(heroTitle, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+    if (heroSubtitle) {
+      heroTl.to(heroSubtitle, { y: 0, opacity: 1, duration: 0.4 }, "-=0.35");
+    }
+    if (heroImage) {
+      heroTl.to(heroImage, { opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+
+    // 2. Pillars Entrance Animations
+    const pillarCards = document.querySelectorAll(".pillar-card");
+    if (pillarCards.length) {
+      gsap.set(pillarCards, { y: 30, opacity: 0 });
+      gsap.to(pillarCards, {
+        y: 0,
+        opacity: 1,
+        duration: 0.45,
+        stagger: 0.1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: "#pillars-section",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    }
+
+    // 3. Outcomes & Services Animations
+    const outcomeBlocks = document.querySelectorAll(".outcome-block");
+    outcomeBlocks.forEach((block) => {
+      const lineV = block.querySelector(".outcome-line-v");
+      const serviceCards = block.querySelectorAll(".service-card");
+
+      if (lineV) gsap.set(lineV, { scaleY: 0, transformOrigin: "top center" });
+      if (serviceCards.length) gsap.set(serviceCards, { y: 25, opacity: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: block,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        defaults: { ease: "power4.out" },
+      });
+
+      if (lineV) {
+        tl.to(lineV, { scaleY: 1, duration: 0.5 });
+      }
+
+      if (serviceCards.length) {
+        tl.to(serviceCards, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08 }, lineV ? "-=0.35" : 0);
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initServicesPageAnimations);
+  } else {
+    initServicesPageAnimations();
+  }
+</script>

@@ -1,0 +1,221 @@
+---
+// 1. Measured Client Results Data
+const clientResults = [
+  {
+    id: "stat-num-0",
+    number: "12,000+",
+    label: "Hours saved annually",
+    note: "Across live Aleddo client deployments",
+  },
+  {
+    id: "stat-num-1",
+    number: "85%",
+    label: "Reduction in manual effort",
+    note: "Measured on automated review workflows",
+  },
+];
+
+// 2. Market Context Research Data
+const marketContext = [
+  {
+    id: "stat-num-2",
+    number: "~$96B",
+    label: "UAE GDP contribution from AI projected by 2030 — about 14% of GDP",
+    source: "Source: PwC",
+  },
+  {
+    id: "stat-num-3",
+    number: "~46% CAGR",
+    label: "Global AI-agents market growth, from ~$7.8B in 2025 to ~$52B by 2030",
+    source: "Source: Third-party market research",
+  },
+];
+---
+
+<section
+  id="measured-results-section"
+  class="relative w-full bg-brand-bg text-brand-text border-b border-brand-text/25 overflow-hidden"
+>
+  <!-- Section Header -->
+  <div class="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20 pb-8 text-center">
+    <div class="max-w-3xl mx-auto space-y-3">
+      <h2
+        class="results-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight"
+      >
+        <span class="block text-brand-text">Numbers We Can</span>
+        <span class="block text-brand-tertiary">Stand Behind</span>
+      </h2>
+      <p
+        class="results-subheading text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-relaxed max-w-2xl mx-auto pt-1"
+      >
+        These are Aleddo's own measured results across live client deployments, each against a baseline captured before automation.
+      </p>
+    </div>
+  </div>
+
+  <!-- Aleddo Measured Results Row with Snappy Animations & Passing Line -->
+  <div class="relative w-full py-10 sm:py-14">
+    <!-- Horizontal Passing Line (Positioned behind 50% box center height) -->
+    <div
+      class="results-line-h-1 absolute inset-x-0 top-[165px] sm:top-[175px] h-px bg-brand-text/25 z-0 pointer-events-none origin-left"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 sm:gap-20 md:gap-28 lg:gap-36 px-6 max-w-6xl mx-auto">
+      {
+        clientResults.map((stat) => (
+          <div class="result-card w-full max-w-[360px] sm:max-w-[400px] min-h-[280px] sm:min-h-[300px] p-8 sm:p-10 bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col justify-center items-center text-center relative overflow-hidden group transition-all duration-300 shadow-xl">
+            <div class="space-y-4 w-full my-auto">
+              <span id={stat.id} class="stat-number text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-brand-tertiary font-mono block">
+                {stat.number}
+              </span>
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-brand-text">
+                {stat.label}
+              </h3>
+              <p class="text-sm sm:text-base text-brand-text/75 font-normal leading-relaxed">
+                {stat.note}
+              </p>
+            </div>
+            <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Market Context Section Header (No dividing line) -->
+  <div class="px-6 sm:px-10 lg:px-16 pt-8 sm:pt-12 pb-4 text-center">
+    <span class="text-xs uppercase tracking-widest text-brand-tertiary font-bold block">
+      Market Context — Third-Party Research
+    </span>
+  </div>
+
+  <!-- Third-Party Research Row with Snappy Animations & Passing Line -->
+  <div class="relative w-full pb-16 sm:pb-24 pt-8">
+    <!-- Horizontal Passing Line (Positioned behind 50% box center height) -->
+    <div
+      class="results-line-h-2 absolute inset-x-0 top-[165px] sm:top-[175px] h-px bg-brand-text/25 z-0 pointer-events-none origin-left"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 sm:gap-20 md:gap-28 lg:gap-36 px-6 max-w-6xl mx-auto">
+      {
+        marketContext.map((item) => (
+          <div class="market-card w-full max-w-[360px] sm:max-w-[400px] min-h-[280px] sm:min-h-[300px] p-8 sm:p-10 bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col justify-center items-center text-center relative overflow-hidden group transition-all duration-300 shadow-xl">
+            <div class="space-y-4 w-full my-auto">
+              <span id={item.id} class="stat-number text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-brand-text font-mono block">
+                {item.number}
+              </span>
+              <p class="text-sm sm:text-base md:text-lg text-brand-text/85 font-normal leading-relaxed">
+                {item.label}
+              </p>
+              <div class="pt-1">
+                <span class="inline-block px-3.5 py-1.5 text-xs font-mono font-medium text-brand-tertiary bg-brand-surface/80 border border-brand-text/25">
+                  {item.source}
+                </span>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initMeasuredResultsAnimation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const section = document.getElementById("measured-results-section");
+    if (!section) return;
+
+    const lineH1 = section.querySelector(".results-line-h-1");
+    const lineH2 = section.querySelector(".results-line-h-2");
+    const heading = section.querySelector(".results-heading");
+    const subheading = section.querySelector(".results-subheading");
+    const resultCards = section.querySelectorAll(".result-card");
+    const marketCards = section.querySelectorAll(".market-card");
+
+    if (lineH1) gsap.set(lineH1, { scaleX: 0, transformOrigin: "left center" });
+    if (lineH2) gsap.set(lineH2, { scaleX: 0, transformOrigin: "left center" });
+    if (heading) gsap.set(heading, { y: 20, opacity: 0 });
+    if (subheading) gsap.set(subheading, { y: 15, opacity: 0 });
+    if (resultCards.length) gsap.set(resultCards, { y: 20, opacity: 0 });
+    if (marketCards.length) gsap.set(marketCards, { y: 20, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 75%",
+        toggleActions: "play none none none",
+      },
+      defaults: { ease: "power4.out" },
+    });
+
+    if (heading) {
+      tl.to(heading, { y: 0, opacity: 1, duration: 0.35 });
+    }
+
+    if (subheading) {
+      tl.to(subheading, { y: 0, opacity: 1, duration: 0.3 }, "-=0.25");
+    }
+
+    if (lineH1) {
+      tl.to(lineH1, { scaleX: 1, duration: 0.4 }, "-=0.2");
+    }
+
+    if (resultCards.length) {
+      tl.to(resultCards, { y: 0, opacity: 1, duration: 0.35, stagger: 0.08 }, "-=0.3");
+    }
+
+    if (lineH2) {
+      tl.to(lineH2, { scaleX: 1, duration: 0.4 }, "-=0.2");
+    }
+
+    if (marketCards.length) {
+      tl.to(marketCards, { y: 0, opacity: 1, duration: 0.35, stagger: 0.08 }, "-=0.3");
+    }
+
+    // Interactive Number Count-Up Tweens
+    const counters = [
+      { selector: "#stat-num-0", targetVal: 12000, prefix: "", suffix: "+", formatComma: true },
+      { selector: "#stat-num-1", targetVal: 85, prefix: "", suffix: "%", formatComma: false },
+      { selector: "#stat-num-2", targetVal: 96, prefix: "~$", suffix: "B", formatComma: false },
+      { selector: "#stat-num-3", targetVal: 46, prefix: "~", suffix: "% CAGR", formatComma: false },
+    ];
+
+    counters.forEach((item) => {
+      const el = section.querySelector(item.selector);
+      if (!el) return;
+
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: item.targetVal,
+        duration: 1.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: () => {
+          const current = Math.floor(obj.val);
+          const formatted = item.formatComma ? current.toLocaleString() : current.toString();
+          el.textContent = `${item.prefix}${formatted}${item.suffix}`;
+        },
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMeasuredResultsAnimation);
+  } else {
+    initMeasuredResultsAnimation();
+  }
+</script>

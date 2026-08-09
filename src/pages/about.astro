@@ -1,0 +1,443 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Footer from "../components/Footer.astro";
+import DubaiAiSeal from "../components/DubaiAiSeal.astro";
+
+// Divisions data
+const divisions = [
+  {
+    name: "Aleddo Services",
+    description:
+      "Engineers custom AI applications, advanced analytics, and secure software architectures tailored for clients in highly regulated industries.",
+    buttonText: "Explore Services",
+    buttonHref: "/services",
+  },
+  {
+    name: "Aleddo AI Studio",
+    description:
+      "Transforms recurring operational patterns into autonomous, production-ready software products — starting with domain-trained Digital Employees.",
+    buttonText: "Discover Products",
+    buttonHref: "/services",
+  },
+  {
+    name: "Aleddo Lab",
+    description:
+      "Serves as our internal research engine, pioneering next-generation AI capabilities that continuously fuel both Services and AI Studio.",
+    buttonText: "Get in Touch",
+    buttonHref: "/contact",
+  },
+];
+
+// Leadership data
+const leaders = [
+  {
+    name: "Alvin Santhosh",
+    role: "CEO & Co-founder",
+    initials: "AS",
+  },
+  {
+    name: "Cyril Sebastian P",
+    role: "COO & Co-founder",
+    initials: "CS",
+  },
+];
+
+// Honorary Advisors data
+const advisors = [
+  {
+    name: "Mathew C Mathew",
+    role: "Honorary Advisor",
+    bio: "Founder & CEO, Logiseye. 26 years of senior global leadership at DHL.",
+    initials: "MM",
+  },
+  {
+    name: "Bala Gopalan",
+    role: "Honorary Advisor",
+    bio: "Director of Artificial Intelligence, Oracle.",
+    initials: "BG",
+  },
+];
+
+// Core Engineering data
+const engineers = [
+  { name: "Gopikrishnan Sasikumar", role: "Core engineering", initials: "GS" },
+  { name: "Alosh Denny", role: "Core engineering", initials: "AD" },
+  { name: "Prajwal CP", role: "Core engineering", initials: "PC" },
+  { name: "Rejin Jose K", role: "Core engineering", initials: "RJ" },
+];
+
+// Offices data
+const offices = [
+  {
+    title: "Dubai — HQ",
+    address: "6th Floor, Meydan Grandstand, Meydan Road, Nad Al Sheba, Dubai, United Arab Emirates",
+    phone: "+971 502978387",
+    email: "contact@aleddotechnologies.com",
+  },
+  {
+    title: "Kerala — India",
+    address: "Ernakulam District, Kerala, India",
+    phone: "+91 9061228972",
+    email: "contact@aleddotechnologies.com",
+  },
+];
+---
+
+<Layout title="About Us | Aleddo Technologies">
+  <Navbar />
+
+  <main id="main-content" class="flex-1 w-full bg-brand-bg text-brand-text">
+    <!-- Hero Header Section (Compact Height on Mobile, Full Height on Desktop) -->
+    <section class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-73px)] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
+      <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
+        <!-- Left Text Content -->
+        <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full">
+          <h1
+            class="about-page-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
+          >
+            <span class="block text-brand-text">Engineering</span>
+            <span class="block text-brand-tertiary">Intelligence</span>
+          </h1>
+          <p
+            class="about-page-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-2"
+          >
+            Aleddo Services delivers bespoke AI, analytics, and software for clients in regulated industries. Aleddo AI Studio turns those repeated patterns into products, starting with Digital Employees. Aleddo Lab is the internal R&D function that feeds both.
+          </p>
+
+          <!-- Full-Height Vertical Divider (Desktop) -->
+          <div class="about-line-v absolute inset-y-0 right-0 w-px bg-brand-text/25 hidden lg:block origin-top"></div>
+        </div>
+
+        <!-- Right Side Image Placeholder (Desktop only - hidden on mobile) -->
+        <div class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-8 lg:p-12 bg-brand-bg">
+          <div class="relative w-full h-full max-h-[82%] border border-brand-text/25 overflow-hidden">
+            <img
+              src="/images/contact_extraordinary_bg.webp"
+              alt="Aleddo Enterprise AI Graphic"
+              loading="eager"
+              decoding="async"
+              class="about-hero-image w-full h-full object-cover object-center"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Divisions Grid Section -->
+    <section id="divisions-section" class="relative w-full border-b border-brand-text/25">
+      <div class="grid grid-cols-1 md:grid-cols-3 w-full relative divide-y md:divide-y-0 md:divide-x divide-brand-text/25">
+        {
+          divisions.map((div) => (
+            <div class="division-card p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between space-y-8">
+              <div class="space-y-4">
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                  {div.name}
+                </h3>
+                <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed max-w-prose lg:max-w-xs xl:max-w-sm">
+                  {div.description}
+                </p>
+              </div>
+
+              <div class="pt-2">
+                <a
+                  href={div.buttonHref}
+                  class="inline-flex items-center text-brand-tertiary hover:text-brand-text text-base font-semibold transition-colors group"
+                >
+                  <span>{div.buttonText}</span>
+                  <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
+      <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+          Leadership
+        </h2>
+      </div>
+
+      <!-- Centered Cards Row with Increased Spacing & Larger Font Sizes -->
+      <div class="relative w-full">
+        <div class="absolute inset-x-0 top-[80px] sm:top-[96px] md:top-[112px] h-px bg-brand-text/25 z-0 pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10 flex flex-wrap items-start justify-center gap-16 sm:gap-24 lg:gap-36 px-6 max-w-7xl mx-auto">
+          {
+            leaders.map((leader) => (
+              <div class="team-card flex flex-col items-center text-center max-w-[260px] sm:max-w-[300px]">
+                <!-- Portrait Image Box -->
+                <div class="w-40 sm:w-48 md:w-56 aspect-[3/4] bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col items-center justify-center relative overflow-hidden group transition-all duration-300 shadow-xl">
+                  {leader.image ? (
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono">
+                      {leader.initials}
+                    </span>
+                  )}
+                  <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Name & Designation Below -->
+                <div class="space-y-1.5 pt-5 text-center">
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                    {leader.name}
+                  </h3>
+                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary">
+                    {leader.role}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Honorary Advisors Section -->
+    <section id="advisors-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
+      <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+          Honorary Advisors
+        </h2>
+      </div>
+
+      <!-- Centered Cards Row with Increased Spacing & Larger Font Sizes -->
+      <div class="relative w-full">
+        <div class="absolute inset-x-0 top-[80px] sm:top-[96px] md:top-[112px] h-px bg-brand-text/25 z-0 pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10 flex flex-wrap items-start justify-center gap-16 sm:gap-24 lg:gap-36 px-6 max-w-7xl mx-auto">
+          {
+            advisors.map((advisor) => (
+              <div class="team-card flex flex-col items-center text-center max-w-[280px] sm:max-w-[320px]">
+                <!-- Portrait Image Box -->
+                <div class="w-40 sm:w-48 md:w-56 aspect-[3/4] bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col items-center justify-center relative overflow-hidden group transition-all duration-300 shadow-xl">
+                  {advisor.image ? (
+                    <img
+                      src={advisor.image}
+                      alt={advisor.name}
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono">
+                      {advisor.initials}
+                    </span>
+                  )}
+                  <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Name & Designation Below -->
+                <div class="space-y-1.5 pt-5 text-center">
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                    {advisor.name}
+                  </h3>
+                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary">
+                    {advisor.role}
+                  </p>
+                  <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed pt-1 max-w-xs">
+                    {advisor.bio}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Engineering Section -->
+    <section id="engineering-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
+      <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+          Core Engineering
+        </h2>
+      </div>
+
+      <!-- Centered Cards Row with Increased Spacing & Larger Font Sizes -->
+      <div class="relative w-full">
+        <div class="absolute inset-x-0 top-[96px] sm:top-[117px] h-px bg-brand-text/25 z-0 pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10 flex flex-wrap items-start justify-center gap-10 sm:gap-16 lg:gap-20 px-6 max-w-7xl mx-auto">
+          {
+            engineers.map((eng) => (
+              <div class="team-card flex flex-col items-center text-center max-w-[220px]">
+                <!-- Portrait Image Box -->
+                <div class="w-36 sm:w-44 aspect-[3/4] bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col items-center justify-center relative overflow-hidden group transition-all duration-300 shadow-xl">
+                  {eng.image ? (
+                    <img
+                      src={eng.image}
+                      alt={eng.name}
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-3xl sm:text-4xl font-bold text-brand-tertiary font-mono">
+                      {eng.initials}
+                    </span>
+                  )}
+                  <div class="absolute inset-0 bg-brand-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Name & Designation Below -->
+                <div class="space-y-1 pt-4 text-center">
+                  <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-brand-text">
+                    {eng.name}
+                  </h3>
+                  <p class="text-sm sm:text-base font-semibold text-brand-tertiary">
+                    {eng.role}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Offices Section -->
+    <section id="offices-section" class="relative w-full border-b border-brand-text/25">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full relative divide-y md:divide-y-0 md:divide-x divide-brand-text/25">
+        {
+          offices.map((office) => (
+            <div class="office-card p-6 sm:p-10 lg:p-12 space-y-4 flex flex-col justify-between">
+              <div class="space-y-3">
+                <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-brand-text">
+                  {office.title}
+                </h3>
+                <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed max-w-md">
+                  {office.address}
+                </p>
+              </div>
+              <div class="pt-4 space-y-1.5 text-sm sm:text-base font-normal">
+                <p>
+                  <span class="text-brand-text/60">Phone:</span>
+                  <a
+                    href={`tel:${office.phone.replace(/\s+/g, "")}`}
+                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                  >
+                    {office.phone}
+                  </a>
+                </p>
+                <p>
+                  <span class="text-brand-text/60">Email:</span>
+                  <a
+                    href={`mailto:${office.email}`}
+                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                  >
+                    {office.email}
+                  </a>
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA & Footer -->
+    <CtaSection />
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initAboutPageAnimations = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // 1. Hero Section Entrance Animations
+    const heroTitle = document.querySelector(".about-page-title");
+    const heroSubtitle = document.querySelector(".about-page-subtitle");
+    const heroLineV = document.querySelector(".about-line-v");
+    const heroImage = document.querySelector(".about-hero-image");
+
+    if (heroLineV) gsap.set(heroLineV, { scaleY: 0, transformOrigin: "top center" });
+    if (heroTitle) gsap.set(heroTitle, { y: 25, opacity: 0 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { y: 20, opacity: 0 });
+    if (heroImage) gsap.set(heroImage, { opacity: 0 });
+
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    if (heroLineV) {
+      heroTl.to(heroLineV, { scaleY: 1, duration: 0.5 });
+    }
+    if (heroTitle) {
+      heroTl.to(heroTitle, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+    if (heroSubtitle) {
+      heroTl.to(heroSubtitle, { y: 0, opacity: 1, duration: 0.4 }, "-=0.35");
+    }
+    if (heroImage) {
+      heroTl.to(heroImage, { opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+
+    // 2. ScrollTrigger Section Animations
+    const sections = [
+      "#divisions-section",
+      "#leadership-section",
+      "#advisors-section",
+      "#engineering-section",
+      "#offices-section",
+    ];
+
+    sections.forEach((secId) => {
+      const section = document.querySelector(secId);
+      if (!section) return;
+
+      const title = section.querySelector(".section-title");
+      const centerLine = section.querySelector(".absolute.inset-x-0.h-px");
+      const cards = section.querySelectorAll(".division-card, .team-card, .office-card");
+
+      if (title) gsap.set(title, { y: 25, opacity: 0 });
+      if (centerLine) gsap.set(centerLine, { scaleX: 0, transformOrigin: "left center" });
+      if (cards.length) gsap.set(cards, { y: 25, opacity: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        defaults: { ease: "power4.out" },
+      });
+
+      if (title) {
+        tl.to(title, { y: 0, opacity: 1, duration: 0.45 });
+      }
+
+      if (centerLine) {
+        tl.to(centerLine, { scaleX: 1, duration: 0.5 }, "-=0.35");
+      }
+
+      if (cards.length) {
+        tl.to(cards, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08 }, "-=0.35");
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAboutPageAnimations);
+  } else {
+    initAboutPageAnimations();
+  }
+</script>
