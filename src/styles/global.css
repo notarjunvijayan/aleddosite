@@ -70,45 +70,45 @@
   --font-sans: 'Clash Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-clash: 'Clash Grotesk', sans-serif;
 
-  /* Semantic Brand Colors */
-  --color-brand-bg: #03045A;
-  --color-brand-surface: #0A0C78;
-  --color-brand-elevated: #121696;
+  /* Semantic Brand Colors (Harmonized with Deep Midnight Navy #02033B) */
+  --color-brand-bg: #02033B;
+  --color-brand-surface: #070952;
+  --color-brand-elevated: #0C0F70;
   
-  --color-brand-text: #B9E6F2;
-  --color-brand-muted: #8BD4E7;
-  --color-brand-subtle: #55BDD8;
+  --color-brand-text: #C2ECF7;
+  --color-brand-muted: #95DDF0;
+  --color-brand-subtle: #56CBEB;
 
-  --color-brand-accent: #0096C7;
-  --color-brand-accent-hover: #00B4D8;
-  --color-brand-tertiary: #6FC7E1;
-  --color-tertiary: #6FC7E1;
-  --color-brand-border: rgba(185, 230, 242, 0.15);
+  --color-brand-accent: #00A3D7;
+  --color-brand-accent-hover: #00B8F0;
+  --color-brand-tertiary: #56CBEB;
+  --color-tertiary: #56CBEB;
+  --color-brand-border: rgba(194, 236, 247, 0.2);
 
 
-  /* Navy Scale (Primary Background Family) */
-  --color-navy-950: #010238;
-  --color-navy-900: #03045A; /* Primary BG */
-  --color-navy-800: #0A0C78;
-  --color-navy-700: #121696;
-  --color-navy-600: #1B20B5;
-  --color-navy-500: #262CD4;
-  --color-navy-400: #4F54E2;
-  --color-navy-300: #7A7EEA;
-  --color-navy-200: #A7A9F2;
-  --color-navy-100: #D3D4F9;
-  --color-navy-50:  #EFEFFD;
+  /* Navy Scale (Deep Navy Background Family) */
+  --color-navy-950: #010228;
+  --color-navy-900: #02033B; /* Primary BG */
+  --color-navy-800: #070952;
+  --color-navy-700: #0C0F70;
+  --color-navy-600: #121693;
+  --color-navy-500: #191EB7;
+  --color-navy-400: #383EDB;
+  --color-navy-300: #6B70ED;
+  --color-navy-200: #9EA1F4;
+  --color-navy-100: #D0D2FA;
+  --color-navy-50:  #EFF0FD;
 
-  /* Ice Cyan Scale (Primary Text Family) */
-  --color-ice-950: #04161C;
-  --color-ice-900: #082933;
-  --color-ice-800: #0E4454;
-  --color-ice-700: #146177;
-  --color-ice-600: #1B7F9B;
-  --color-ice-500: #29A2C2;
-  --color-ice-400: #55BDD8;
-  --color-ice-300: #8BD4E7;
-  --color-ice-200: #B9E6F2; /* Primary Text */
-  --color-ice-100: #DCF3FA;
+  /* Ice Cyan Scale (Primary Text & Accent Family) */
+  --color-ice-950: #03141A;
+  --color-ice-900: #072630;
+  --color-ice-800: #0C4152;
+  --color-ice-700: #125F78;
+  --color-ice-600: #1980A1;
+  --color-ice-500: #24A4CB;
+  --color-ice-400: #56CBEB;
+  --color-ice-300: #95DDF0;
+  --color-ice-200: #C2ECF7; /* Primary Text */
+  --color-ice-100: #DEF4FA;
   --color-ice-50:  #F2FAFD;
 }
