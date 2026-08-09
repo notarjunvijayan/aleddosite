@@ -37,6 +37,7 @@ import SolutionButton from "./SolutionButton.astro";
   gsap.registerPlugin(ScrollTrigger);
 
   const initCtaAnimation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const section = document.getElementById("cta-section");
     if (!section) return;
 
