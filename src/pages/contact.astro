@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
     <!-- Contact Hero Section (Compact Height on Mobile, Full Height on Desktop) -->
     <section
       id="contact-hero-section"
-      class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-73px)] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0"
+      class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0"
     >
       <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
         <!-- Left Side Text Block -->
@@ -71,94 +71,89 @@ import Footer from "../components/Footer.astro";
       <div class="w-full flex flex-col lg:flex-row items-stretch relative">
         <!-- Left Column: Direct Contact Channels & Expanded Addresses (48% Width) -->
         <div
-          class="w-full lg:w-[48%] xl:w-[48%] p-6 sm:p-10 md:p-14 lg:p-16 border-b lg:border-b-0 flex flex-col justify-between relative overflow-hidden"
+          class="w-full lg:w-[48%] xl:w-[48%] border-b lg:border-b-0 border-r-0 lg:border-r border-brand-text/25 flex flex-col justify-between relative overflow-hidden"
         >
-          <div class="space-y-0">
-            <!-- Dubai, UAE Office -->
-            <div class="contact-info-card space-y-3 pb-8 sm:pb-10">
-              <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">
-                Dubai, UAE
-              </h3>
-              <div class="space-y-1">
-                <p class="text-xl sm:text-2xl font-bold text-brand-text">
-                  Aleddo Technologies
-                </p>
-                <p
-                  class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md"
-                >
-                  6th Floor, Meydan Grandstand, Meydan,<br />
-                  Nad Al Sheba, Dubai, UAE
-                </p>
-              </div>
-              <div
-                class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal"
+          <!-- Dubai, UAE Office -->
+          <div class="contact-info-card space-y-3 p-6 sm:p-10 md:p-14 lg:p-16 border-b border-brand-text/25">
+            <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">
+              Dubai, UAE
+            </h3>
+            <div class="space-y-1">
+              <p class="text-xl sm:text-2xl font-bold text-brand-text">
+                Aleddo Technologies
+              </p>
+              <p
+                class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md"
               >
-                <p>
-                  <span class="text-brand-text/60">Phone:</span>
-                  <a
-                    href="tel:+971502978387"
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
-                  >
-                    +971 502978387
-                  </a>
-                </p>
-                <p>
-                  <span class="text-brand-text/60">Email:</span>
-                  <a
-                    href="mailto:contact@aleddotechnologies.com"
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
-                  >
-                    contact@aleddotechnologies.com
-                  </a>
-                </p>
-              </div>
+                6th Floor, Meydan Grandstand, Meydan,<br />
+                Nad Al Sheba, Dubai, UAE
+              </p>
             </div>
-
-            <!-- Horizontal Line Divider -->
-            <div class="contact-line-h w-full h-px bg-brand-text/25 my-6"></div>
-
-            <!-- Kerala, India Office -->
-            <div class="contact-info-card space-y-3 py-6 sm:py-8">
-              <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">
-                Kerala, India
-              </h3>
-              <div class="space-y-1">
-                <p class="text-xl sm:text-2xl font-bold text-brand-text">
-                  Aleddo Technologies
-                </p>
-                <p
-                  class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md"
+            <div
+              class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal"
+            >
+              <p>
+                <span class="text-brand-text/60">Phone:</span>
+                <a
+                  href="tel:+971502978387"
+                  class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
                 >
-                  Ernakulam, Kerala, India
-                </p>
-              </div>
-              <div
-                class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal"
-              >
-                <p>
-                  <span class="text-brand-text/60">Phone:</span>
-                  <a
-                    href="tel:+919061228972"
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
-                  >
-                    +91 9061228972
-                  </a>
-                </p>
-                <p>
-                  <span class="text-brand-text/60">Email:</span>
-                  <a
-                    href="mailto:contact@aleddotechnologies.com"
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
-                  >
-                    contact@aleddotechnologies.com
-                  </a>
-                </p>
-              </div>
+                  +971 502978387
+                </a>
+              </p>
+              <p>
+                <span class="text-brand-text/60">Email:</span>
+                <a
+                  href="mailto:contact@aleddotechnologies.com"
+                  class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                >
+                  contact@aleddotechnologies.com
+                </a>
+              </p>
             </div>
           </div>
 
-          <!-- Social Channels Row -->
-          <div class="contact-info-card pt-8 border-t border-brand-text/15 space-y-3">
+          <!-- Kerala, India Office -->
+          <div class="contact-info-card space-y-3 p-6 sm:p-10 md:p-14 lg:p-16 border-b border-brand-text/25">
+            <h3 class="text-xs uppercase tracking-widest text-brand-tertiary font-bold">
+              Kerala, India
+            </h3>
+            <div class="space-y-1">
+              <p class="text-xl sm:text-2xl font-bold text-brand-text">
+                Aleddo Technologies
+              </p>
+              <p
+                class="text-base sm:text-lg lg:text-xl font-normal text-brand-text/85 leading-relaxed max-w-md"
+              >
+                Ernakulam, Kerala, India
+              </p>
+            </div>
+            <div
+              class="pt-2 space-y-1.5 text-sm sm:text-base lg:text-lg font-normal"
+            >
+              <p>
+                <span class="text-brand-text/60">Phone:</span>
+                <a
+                  href="tel:+919061228972"
+                  class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                >
+                  +91 9061228972
+                </a>
+              </p>
+              <p>
+                <span class="text-brand-text/60">Email:</span>
+                <a
+                  href="mailto:contact@aleddotechnologies.com"
+                  class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                >
+                  contact@aleddotechnologies.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Channels Row -->
+          <div class="contact-info-card p-6 sm:p-10 md:p-14 lg:p-16 space-y-3">
             <h4 class="text-xs uppercase tracking-widest text-brand-text/50 font-bold">
               Direct Channels
             </h4>

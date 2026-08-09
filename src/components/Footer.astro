@@ -1,5 +1,5 @@
 ---
-
+import Logo from "./Logo.astro";
 ---
 
 <footer
@@ -10,8 +10,8 @@
   <div class="relative w-full p-6 sm:p-10 md:p-14 lg:p-16 py-12 sm:py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 md:gap-14">
     <!-- Column 1: Brand Logo & Mission -->
     <div class="footer-col space-y-4">
-      <a href="/" class="font-bold text-xl sm:text-2xl tracking-wide text-brand-text hover:text-brand-tertiary transition-colors block">
-        Aleddo Technologies
+      <a href="/" class="inline-block group transition-transform duration-300 hover:scale-[1.02] w-fit p-0 -ml-2" aria-label="Aleddo Technologies Home">
+        <Logo class="h-12 sm:h-16 md:h-20" />
       </a>
       <p class="text-sm sm:text-base text-brand-text/80 leading-relaxed">
         Orchestrating Unified Intelligence. Empowering modern enterprises through bespoke AI applications, data engineering, and high-performance software.
@@ -141,6 +141,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   const initFooterAnimations = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const footer = document.getElementById("footer-container");
     if (!footer) return;
 

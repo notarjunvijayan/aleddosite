@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "h-14 sm:h-18 md:h-20" } = Astro.props;
+---
+
+<div class={`inline-flex items-center ${className}`}>
+  <img
+    src="/images/aleddo_logo.webp"
+    alt="Aleddo Technologies"
+    width="279"
+    height="131"
+    loading="eager"
+    decoding="async"
+    class="h-full w-auto object-contain brightness-105 contrast-105"
+  />
+</div>

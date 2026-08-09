@@ -170,7 +170,7 @@ const coreOutcomes = [
 
   <main id="main-content" class="flex-1 w-full bg-brand-bg text-brand-text">
     <!-- Hero Header Section (Compact Height on Mobile, Full Height on Desktop) -->
-    <section class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-73px)] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
+    <section class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
       <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
         <!-- Left Text Content -->
         <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full">
@@ -206,7 +206,7 @@ const coreOutcomes = [
     </section>
 
     <!-- Three Pillars Section -->
-    <section id="pillars-section" class="relative w-full border-b border-brand-text/25">
+    <section id="pillars-section" class="relative w-full border-b border-brand-text/25 scroll-mt-[calc(var(--nav-h,5rem)+1rem)]">
       <div class="grid grid-cols-1 lg:grid-cols-3 w-full relative divide-y lg:divide-y-0 lg:divide-x divide-brand-text/25">
         {
           pillars.map((p) => (
@@ -232,7 +232,7 @@ const coreOutcomes = [
     </section>
 
     <!-- Core Development Breakdown Section -->
-    <section id="core-dev-section" class="relative w-full">
+    <section id="core-dev-section" class="relative w-full scroll-mt-[calc(var(--nav-h,5rem)+1rem)]">
       <div class="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20 pb-10 border-b border-brand-text/25">
         <div class="max-w-4xl space-y-3">
           <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight">
@@ -248,10 +248,10 @@ const coreOutcomes = [
       <!-- Outcomes Breakdown Grid -->
       {
         coreOutcomes.map((outcome) => (
-          <div class="outcome-block w-full flex flex-col lg:flex-row items-stretch relative border-b last:border-b-0 border-brand-text/25">
+          <div id={outcome.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")} class="outcome-block w-full flex flex-col lg:flex-row items-stretch relative border-b last:border-b-0 border-brand-text/25 scroll-mt-[calc(var(--nav-h,5rem)+1rem)]">
             <!-- Left Sticky Category Column -->
             <div class="w-full lg:w-[32%] xl:w-[30%] p-8 sm:p-10 lg:p-14 border-b lg:border-b-0 shrink-0 flex flex-col justify-start relative bg-brand-bg">
-              <div class="lg:sticky lg:top-24 space-y-4">
+              <div class="lg:sticky lg:top-[calc(var(--nav-h,5rem)+1rem)] space-y-4">
                 <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-text">
                   {outcome.category}
                 </h3>
