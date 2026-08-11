@@ -17,9 +17,12 @@ import Footer from "../components/Footer.astro";
       class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0"
     >
       <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
+        <!-- Full-Height Vertical Divider (Desktop, spanning top to bottom 100%) -->
+        <div class="contact-line-v absolute top-0 bottom-0 left-[58%] w-px bg-brand-text/25 hidden lg:block origin-top z-10"></div>
+
         <!-- Left Side Text Block -->
         <div
-          class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full"
+          class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-center space-y-4 sm:space-y-6 relative h-full"
         >
           <h1
             class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
@@ -33,24 +36,62 @@ import Footer from "../components/Footer.astro";
             Have a vision in mind, need tailored AI solutions, or want to discuss enterprise tech strategy? Connect with our teams in Dubai and India.
           </p>
 
-          <!-- Full-Height Vertical Divider (Desktop) -->
-          <div
-            class="contact-line-v absolute inset-y-0 right-0 w-px bg-brand-text/25 hidden lg:block origin-top"
-          ></div>
+          <!-- Desktop Bottom-Right Scroll Indicator (inside left column, away from text) -->
+          <div class="hidden lg:flex absolute right-6 lg:right-10 bottom-6 lg:bottom-8 z-20 pointer-events-auto">
+            <a
+              href="#contact-main-section"
+              class="scroll-indicator-target flex items-center justify-center text-brand-text/75 hover:text-brand-text transition-colors duration-300 group cursor-pointer"
+              aria-label="Scroll to see more"
+            >
+              <div class="relative w-32 h-32 xl:w-36 xl:h-36 flex items-center justify-center">
+                <svg
+                  viewBox="0 0 140 140"
+                  class="w-full h-auto animate-[spin_14s_linear_infinite]"
+                >
+                  <path
+                    id="scrollTextPathContact"
+                    d="M 70,70 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
+                    fill="none"
+                  ></path>
+                  <text class="text-[13px] font-semibold tracking-[0.2em] uppercase fill-current font-sans">
+                    <textPath href="#scrollTextPathContact" startOffset="0%">
+                      SCROLL TO SEE MORE • SCROLL TO SEE MORE •
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <svg
+                    class="w-5 h-5 xl:w-6 xl:h-6 text-brand-text stroke-current transition-transform duration-300 group-hover:translate-y-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.75"
+                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
 
         <!-- Right Side Image Block (Desktop only - hidden on mobile) -->
         <div
-          class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-8 lg:p-12 bg-brand-bg"
+          class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-10 lg:p-14 xl:p-16 bg-brand-bg"
         >
           <div
-            class="relative w-full h-full max-h-[82%] border border-brand-text/25 overflow-hidden"
+            class="relative w-full h-full max-h-[88%] border border-brand-text/25 overflow-hidden"
           >
             <img
               src="/images/contact_extraordinary_bg.webp"
               alt="Aleddo AI Matrix Graphic"
               loading="eager"
               decoding="async"
+              fetchpriority="high"
               class="contact-hero-image w-full h-full object-cover object-center"
             />
           </div>
@@ -385,12 +426,14 @@ import Footer from "../components/Footer.astro";
       const title = heroSection.querySelector(".contact-title");
       const subtitle = heroSection.querySelector(".contact-subtitle");
       const heroImage = heroSection.querySelector(".contact-hero-image");
+      const scrollIndicator = heroSection.querySelector(".scroll-indicator-target");
 
       if (lineV) gsap.set(lineV, { scaleY: 0, transformOrigin: "top center" });
       if (lineH) gsap.set(lineH, { scaleX: 0, transformOrigin: "left center" });
       if (title) gsap.set(title, { y: 25, opacity: 0 });
       if (subtitle) gsap.set(subtitle, { y: 20, opacity: 0 });
       if (heroImage) gsap.set(heroImage, { opacity: 0 });
+      if (scrollIndicator) gsap.set(scrollIndicator, { scale: 0.8, opacity: 0 });
 
       const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
@@ -411,7 +454,51 @@ import Footer from "../components/Footer.astro";
       }
 
       if (heroImage) {
-        heroTl.to(heroImage, { opacity: 1, duration: 0.5 }, "-=0.35");
+        heroTl.to(heroImage, { opacity: 1, duration: 0.45 }, "-=0.35");
+      }
+
+      if (scrollIndicator) {
+        heroTl.to(scrollIndicator, { scale: 1, opacity: 1, duration: 0.4 }, "-=0.35");
+      }
+
+      // Magnetic mouse cursor interaction for scroll indicator
+      const heroContainer = document.getElementById("contact-hero-section");
+      const scrollIndicators = document.querySelectorAll(".scroll-indicator-target");
+      if (heroContainer && scrollIndicators.length) {
+        heroContainer.addEventListener("mousemove", (e) => {
+          scrollIndicators.forEach((indicator) => {
+            const rect = indicator.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = (e.clientX - centerX) * 0.06;
+            const deltaY = (e.clientY - centerY) * 0.06;
+
+            const maxOffset = 14;
+            const clampedX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+            const clampedY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+
+            gsap.to(indicator, {
+              x: clampedX,
+              y: clampedY,
+              duration: 0.6,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
+          });
+        });
+
+        heroContainer.addEventListener("mouseleave", () => {
+          scrollIndicators.forEach((indicator) => {
+            gsap.to(indicator, {
+              x: 0,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
+          });
+        });
       }
     }
 
@@ -460,22 +547,59 @@ import Footer from "../components/Footer.astro";
     }
   };
 
-  // Form Handling
-  const contactForm = document.getElementById(
-    "contact-form",
-  ) as HTMLFormElement | null;
-  const successMsg = document.getElementById("form-success-msg");
+  // Form Handling with WordPress API Endpoint
+  import { submitWPContactForm } from "../lib/wordpress";
 
-  if (contactForm && successMsg) {
-    contactForm.addEventListener("submit", (e) => {
+  const contactForm = document.getElementById("contact-form") as HTMLFormElement | null;
+  const successMsg = document.getElementById("form-success-msg");
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement | null;
+
+  if (contactForm && successMsg && submitBtn) {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      contactForm.reset();
-      successMsg.classList.remove("hidden");
-      gsap.fromTo(
-        successMsg,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
-      );
+
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.classList.add("opacity-80", "cursor-wait");
+      submitBtn.innerHTML = `<span class="font-semibold">Submitting...</span>`;
+
+      const formData = new FormData(contactForm);
+      const name = (formData.get("name") as string) || "";
+      const email = (formData.get("email") as string) || "";
+      const company = (formData.get("company") as string) || "";
+      const message = (formData.get("message") as string) || "";
+      const selectedServices = formData.getAll("services").join(", ");
+
+      const result = await submitWPContactForm({
+        name,
+        email,
+        company,
+        service: selectedServices,
+        message,
+      });
+
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("opacity-80", "cursor-wait");
+      submitBtn.innerHTML = originalBtnHtml;
+
+      if (result.success) {
+        contactForm.reset();
+        successMsg.textContent = `✓ ${result.message}`;
+        successMsg.className = "text-brand-tertiary text-base font-semibold pt-2 block";
+        gsap.fromTo(
+          successMsg,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
+        );
+      } else {
+        successMsg.textContent = `✕ ${result.message}`;
+        successMsg.className = "text-red-400 text-base font-semibold pt-2 block";
+        gsap.fromTo(
+          successMsg,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
+        );
+      }
     });
   }
 

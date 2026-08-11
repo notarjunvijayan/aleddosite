@@ -64,20 +64,19 @@ const advisors = [
 const engineers = [
   { name: "Gopikrishnan Sasikumar", role: "Core engineering", initials: "GS" },
   { name: "Alosh Denny", role: "Core engineering", initials: "AD" },
-  { name: "Prajwal CP", role: "Core engineering", initials: "PC" },
   { name: "Rejin Jose K", role: "Core engineering", initials: "RJ" },
 ];
 
 // Offices data
 const offices = [
   {
-    title: "Dubai — HQ",
+    title: "Dubai",
     address: "6th Floor, Meydan Grandstand, Meydan Road, Nad Al Sheba, Dubai, United Arab Emirates",
     phone: "+971 502978387",
     email: "contact@aleddotechnologies.com",
   },
   {
-    title: "Kerala — India",
+    title: "Kerala",
     address: "Ernakulam District, Kerala, India",
     phone: "+91 9061228972",
     email: "contact@aleddotechnologies.com",
@@ -89,11 +88,13 @@ const offices = [
   <Navbar />
 
   <main id="main-content" class="flex-1 w-full bg-brand-bg text-brand-text">
-    <!-- Hero Header Section (Compact Height on Mobile, Full Height on Desktop) -->
-    <section class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
+    <section id="about-hero-section" class="relative z-10 w-full min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] border-b border-brand-text/25 overflow-hidden flex flex-col py-12 lg:py-0">
       <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
+        <!-- Full-Height Vertical Divider (Desktop, spanning top to bottom 100%) -->
+        <div class="about-line-v absolute top-0 bottom-0 left-[58%] w-px bg-brand-text/25 hidden lg:block origin-top z-10"></div>
+
         <!-- Left Text Content -->
-        <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-16 flex flex-col justify-center space-y-4 relative my-auto h-full">
+        <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-center space-y-4 sm:space-y-6 relative h-full">
           <h1
             class="about-page-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
           >
@@ -106,18 +107,58 @@ const offices = [
             Aleddo Services delivers bespoke AI, analytics, and software for clients in regulated industries. Aleddo AI Studio turns those repeated patterns into products, starting with Digital Employees. Aleddo Lab is the internal R&D function that feeds both.
           </p>
 
-          <!-- Full-Height Vertical Divider (Desktop) -->
-          <div class="about-line-v absolute inset-y-0 right-0 w-px bg-brand-text/25 hidden lg:block origin-top"></div>
+          <!-- Desktop Bottom-Right Scroll Indicator (inside left column, away from text) -->
+          <div class="hidden lg:flex absolute right-6 lg:right-10 bottom-6 lg:bottom-8 z-20 pointer-events-auto">
+            <a
+              href="#divisions-section"
+              class="scroll-indicator-target flex items-center justify-center text-brand-text/75 hover:text-brand-text transition-colors duration-300 group cursor-pointer"
+              aria-label="Scroll to see more"
+            >
+              <div class="relative w-32 h-32 xl:w-36 xl:h-36 flex items-center justify-center">
+                <svg
+                  viewBox="0 0 140 140"
+                  class="w-full h-auto animate-[spin_14s_linear_infinite]"
+                >
+                  <path
+                    id="scrollTextPathAbout"
+                    d="M 70,70 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
+                    fill="none"
+                  ></path>
+                  <text class="text-[13px] font-semibold tracking-[0.2em] uppercase fill-current font-sans">
+                    <textPath href="#scrollTextPathAbout" startOffset="0%">
+                      SCROLL TO SEE MORE • SCROLL TO SEE MORE •
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <svg
+                    class="w-5 h-5 xl:w-6 xl:h-6 text-brand-text stroke-current transition-transform duration-300 group-hover:translate-y-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.75"
+                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
 
         <!-- Right Side Image Placeholder (Desktop only - hidden on mobile) -->
-        <div class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-8 lg:p-12 bg-brand-bg">
-          <div class="relative w-full h-full max-h-[82%] border border-brand-text/25 overflow-hidden">
+        <div class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-10 lg:p-14 xl:p-16 bg-brand-bg">
+          <div class="relative w-full h-full max-h-[88%] border border-brand-text/25 overflow-hidden">
             <img
               src="/images/contact_extraordinary_bg.webp"
               alt="Aleddo Enterprise AI Graphic"
               loading="eager"
               decoding="async"
+              fetchpriority="high"
               class="about-hero-image w-full h-full object-cover object-center"
             />
           </div>
@@ -370,11 +411,13 @@ const offices = [
     const heroSubtitle = document.querySelector(".about-page-subtitle");
     const heroLineV = document.querySelector(".about-line-v");
     const heroImage = document.querySelector(".about-hero-image");
+    const scrollIndicator = document.querySelector(".scroll-indicator-target");
 
     if (heroLineV) gsap.set(heroLineV, { scaleY: 0, transformOrigin: "top center" });
     if (heroTitle) gsap.set(heroTitle, { y: 25, opacity: 0 });
     if (heroSubtitle) gsap.set(heroSubtitle, { y: 20, opacity: 0 });
     if (heroImage) gsap.set(heroImage, { opacity: 0 });
+    if (scrollIndicator) gsap.set(scrollIndicator, { scale: 0.8, opacity: 0 });
 
     const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
@@ -389,6 +432,49 @@ const offices = [
     }
     if (heroImage) {
       heroTl.to(heroImage, { opacity: 1, duration: 0.45 }, "-=0.35");
+    }
+    if (scrollIndicator) {
+      heroTl.to(scrollIndicator, { scale: 1, opacity: 1, duration: 0.4 }, "-=0.35");
+    }
+
+    // Magnetic mouse cursor interaction for scroll indicator
+    const heroContainer = document.getElementById("about-hero-section");
+    const scrollIndicators = document.querySelectorAll(".scroll-indicator-target");
+    if (heroContainer && scrollIndicators.length) {
+      heroContainer.addEventListener("mousemove", (e) => {
+        scrollIndicators.forEach((indicator) => {
+          const rect = indicator.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const deltaX = (e.clientX - centerX) * 0.06;
+          const deltaY = (e.clientY - centerY) * 0.06;
+
+          const maxOffset = 14;
+          const clampedX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+          const clampedY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+
+          gsap.to(indicator, {
+            x: clampedX,
+            y: clampedY,
+            duration: 0.6,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        });
+      });
+
+      heroContainer.addEventListener("mouseleave", () => {
+        scrollIndicators.forEach((indicator) => {
+          gsap.to(indicator, {
+            x: 0,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        });
+      });
     }
 
     // 2. ScrollTrigger Section Animations
