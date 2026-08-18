@@ -96,13 +96,13 @@ const offices = [
         <!-- Left Text Content -->
         <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-center space-y-4 sm:space-y-6 relative h-full">
           <h1
-            class="about-page-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
+            class="about-page-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-[1.1] sm:leading-[1.08]"
           >
             <span class="block text-brand-text">Engineering</span>
             <span class="block text-brand-tertiary">Intelligence</span>
           </h1>
           <p
-            class="about-page-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-2"
+            class="about-page-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-[1.65] max-w-2xl pt-2"
           >
             Aleddo Services delivers bespoke AI, analytics, and software for clients in regulated industries. Aleddo AI Studio turns those repeated patterns into products, starting with Digital Employees. Aleddo Lab is the internal R&D function that feeds both.
           </p>
@@ -173,10 +173,10 @@ const offices = [
           divisions.map((div) => (
             <div class="division-card p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between space-y-8">
               <div class="space-y-4">
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-snug text-brand-text">
                   {div.name}
                 </h3>
-                <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed max-w-prose lg:max-w-xs xl:max-w-sm">
+                <p class="text-base sm:text-lg text-brand-text/85 leading-[1.65] max-w-prose lg:max-w-xs xl:max-w-sm">
                   {div.description}
                 </p>
               </div>
@@ -186,7 +186,7 @@ const offices = [
                   href={div.buttonHref}
                   class="inline-flex items-center text-brand-tertiary hover:text-brand-text text-base font-semibold transition-colors group"
                 >
-                  <span>{div.buttonText}</span>
+                  <span class="tracking-wide">{div.buttonText}</span>
                   <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
                 </a>
               </div>
@@ -199,7 +199,7 @@ const offices = [
     <!-- Leadership Section -->
     <section id="leadership-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
       <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
-        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.12] sm:leading-[1.1] text-brand-text">
           Leadership
         </h2>
       </div>
@@ -223,7 +223,7 @@ const offices = [
                       class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono">
+                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono leading-none">
                       {leader.initials}
                     </span>
                   )}
@@ -232,10 +232,10 @@ const offices = [
 
                 <!-- Name & Designation Below -->
                 <div class="space-y-1.5 pt-5 text-center">
-                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-snug text-brand-text">
                     {leader.name}
                   </h3>
-                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary">
+                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary tracking-wide leading-snug">
                     {leader.role}
                   </p>
                 </div>
@@ -249,7 +249,7 @@ const offices = [
     <!-- Honorary Advisors Section -->
     <section id="advisors-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
       <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
-        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.12] sm:leading-[1.1] text-brand-text">
           Honorary Advisors
         </h2>
       </div>
@@ -273,7 +273,7 @@ const offices = [
                       class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono">
+                    <span class="text-4xl sm:text-5xl font-bold text-brand-tertiary font-mono leading-none">
                       {advisor.initials}
                     </span>
                   )}
@@ -282,13 +282,13 @@ const offices = [
 
                 <!-- Name & Designation Below -->
                 <div class="space-y-1.5 pt-5 text-center">
-                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                  <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-snug text-brand-text">
                     {advisor.name}
                   </h3>
-                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary">
+                  <p class="text-base sm:text-lg font-semibold text-brand-tertiary tracking-wide leading-snug">
                     {advisor.role}
                   </p>
-                  <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed pt-1 max-w-xs">
+                  <p class="text-base sm:text-lg text-brand-text/85 leading-[1.6] pt-1 max-w-xs">
                     {advisor.bio}
                   </p>
                 </div>
@@ -302,7 +302,7 @@ const offices = [
     <!-- Core Engineering Section -->
     <section id="engineering-section" class="relative w-full border-b border-brand-text/25 pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
       <div class="px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14 text-center max-w-xl mx-auto">
-        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.12] sm:leading-[1.1] text-brand-text">
           Core Engineering
         </h2>
       </div>
@@ -326,7 +326,7 @@ const offices = [
                       class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <span class="text-3xl sm:text-4xl font-bold text-brand-tertiary font-mono">
+                    <span class="text-3xl sm:text-4xl font-bold text-brand-tertiary font-mono leading-none">
                       {eng.initials}
                     </span>
                   )}
@@ -335,10 +335,10 @@ const offices = [
 
                 <!-- Name & Designation Below -->
                 <div class="space-y-1 pt-4 text-center">
-                  <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-brand-text">
+                  <h3 class="text-xl sm:text-2xl font-bold tracking-tight leading-snug text-brand-text">
                     {eng.name}
                   </h3>
-                  <p class="text-sm sm:text-base font-semibold text-brand-tertiary">
+                  <p class="text-sm sm:text-base font-semibold text-brand-tertiary tracking-wide leading-snug">
                     {eng.role}
                   </p>
                 </div>
@@ -357,10 +357,10 @@ const offices = [
           offices.map((office) => (
             <div class="office-card p-6 sm:p-10 lg:p-12 space-y-4 flex flex-col justify-between">
               <div class="space-y-3">
-                <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-brand-text">
+                <h3 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug text-brand-text">
                   {office.title}
                 </h3>
-                <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed max-w-md">
+                <p class="text-base sm:text-lg text-brand-text/85 leading-[1.6] max-w-md">
                   {office.address}
                 </p>
               </div>
@@ -369,7 +369,7 @@ const offices = [
                   <span class="text-brand-text/60">Phone:</span>
                   <a
                     href={`tel:${office.phone.replace(/\s+/g, "")}`}
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2 leading-snug"
                   >
                     {office.phone}
                   </a>
@@ -378,7 +378,7 @@ const offices = [
                   <span class="text-brand-text/60">Email:</span>
                   <a
                     href={`mailto:${office.email}`}
-                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2"
+                    class="text-brand-text hover:text-brand-tertiary transition-colors font-medium ml-2 leading-snug"
                   >
                     {office.email}
                   </a>

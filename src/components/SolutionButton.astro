@@ -12,7 +12,7 @@ const { text, href = "#", class: className = "" } = Astro.props;
   href={href}
   class={`inline-flex items-center justify-between px-6 py-3.5 sm:px-8 sm:py-4 md:px-9 md:py-4.5 bg-brand-tertiary text-brand-bg font-semibold text-sm sm:text-base md:text-lg lg:text-xl tracking-wide hover:bg-brand-muted transition-all duration-300 group shadow-lg ${className}`}
 >
-  <span class="mr-4 sm:mr-6 md:mr-8 font-semibold">{text}</span>
+  <span class="mr-4 sm:mr-6 md:mr-8 font-semibold leading-none">{text}</span>
   <svg
     class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 stroke-current transition-transform duration-300 group-hover:translate-x-2"
     fill="none"

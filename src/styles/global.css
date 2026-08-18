@@ -56,3 +56,27 @@
   --color-ice-100: #DEF4FA;
   --color-ice-50:  #F2FAFD;
 }
+
+@layer base {
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-brand-text);
+    background-color: var(--color-brand-bg);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.625;
+  }
+}

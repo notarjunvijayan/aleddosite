@@ -42,15 +42,15 @@ const capabilities = [
     <div
       class="w-full lg:w-[32%] xl:w-[30%] border-b lg:border-b-0 border-r-0 lg:border-r border-brand-text/30 p-6 sm:p-8 md:p-12 lg:p-14 shrink-0 flex flex-col justify-start relative bg-brand-bg"
     >
-      <div class="lg:sticky lg:top-[calc(var(--nav-h,5rem)+1rem)] space-y-4">
+      <div class="lg:sticky lg:top-[calc(var(--nav-h,5rem)+1rem)] space-y-5">
         <h2
-          class="about-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-brand-text"
+          class="about-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.12] sm:leading-[1.1] text-brand-text"
         >
           <span class="block text-brand-text">What We Build,</span>
           <span class="block text-brand-tertiary">in a Nutshell</span>
         </h2>
         <p
-          class="text-base sm:text-lg lg:text-xl text-brand-text/85 font-normal leading-relaxed pt-1"
+          class="text-base sm:text-lg lg:text-xl text-brand-text/85 font-normal leading-[1.65] pt-0.5"
         >
           At <strong class="text-brand-text font-semibold">Aleddo</strong>, we
           ship custom AI models, agentic workflows, and automated decision
@@ -74,10 +74,10 @@ const capabilities = [
               class={`about-card p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-6 bg-brand-bg hover:bg-brand-surface/15 transition-colors border-b ${idx % 2 === 0 ? "md:border-r border-brand-text/30" : "border-brand-text/30"}`}
             >
               <div class="space-y-3">
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-brand-text">
+                <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-snug text-brand-text">
                   {cap.title}
                 </h3>
-                <p class="text-base sm:text-lg text-brand-text/80 leading-relaxed">
+                <p class="text-base sm:text-lg text-brand-text/80 leading-[1.6]">
                   {cap.description}
                 </p>
               </div>
@@ -85,7 +85,7 @@ const capabilities = [
               <div class="space-y-4 pt-2">
                 <div class="flex flex-wrap gap-2.5">
                   {cap.tags.map((tag) => (
-                    <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25">
+                    <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25 tracking-wide leading-none">
                       {tag}
                     </span>
                   ))}
@@ -96,7 +96,7 @@ const capabilities = [
                     href={cap.href}
                     class="inline-flex items-center text-brand-text/85 hover:text-brand-tertiary text-sm sm:text-base font-medium transition-colors duration-300 py-1.5 border-b border-transparent hover:border-brand-tertiary group"
                   >
-                    <span>Explore Capability</span>
+                    <span class="tracking-wide">Explore Capability</span>
                     <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
                   </a>
                 </div>

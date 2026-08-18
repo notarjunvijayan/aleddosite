@@ -40,13 +40,13 @@ const marketContext = [
   <div class="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20 pb-8 text-center">
     <div class="max-w-3xl mx-auto space-y-3">
       <h2
-        class="results-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight"
+        class="results-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.12] sm:leading-[1.1]"
       >
         <span class="block text-brand-text">Numbers We Can</span>
         <span class="block text-brand-tertiary">Stand Behind</span>
       </h2>
       <p
-        class="results-subheading text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-relaxed max-w-2xl mx-auto pt-1"
+        class="results-subheading text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-[1.6] max-w-2xl mx-auto pt-1"
       >
         These are Aleddo's own measured results across live client deployments, each against a baseline captured before automation.
       </p>
@@ -66,13 +66,13 @@ const marketContext = [
         clientResults.map((stat) => (
           <div class="result-card w-full max-w-[360px] sm:max-w-[400px] min-h-[280px] sm:min-h-[300px] p-8 sm:p-10 bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col justify-center items-center text-center relative overflow-hidden group transition-all duration-300 shadow-xl">
             <div class="space-y-4 w-full my-auto">
-              <span id={stat.id} class="stat-number text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-brand-tertiary font-mono block">
+              <span id={stat.id} class="stat-number text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-brand-tertiary font-mono block leading-none py-1">
                 {stat.number}
               </span>
-              <h3 class="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-brand-text">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-bold tracking-tight leading-snug text-brand-text">
                 {stat.label}
               </h3>
-              <p class="text-sm sm:text-base text-brand-text/75 font-normal leading-relaxed">
+              <p class="text-sm sm:text-base text-brand-text/75 font-normal leading-[1.6]">
                 {stat.note}
               </p>
             </div>
@@ -103,14 +103,14 @@ const marketContext = [
         marketContext.map((item) => (
           <div class="market-card w-full max-w-[360px] sm:max-w-[400px] min-h-[280px] sm:min-h-[300px] p-8 sm:p-10 bg-brand-bg border border-brand-text/25 hover:border-brand-tertiary flex flex-col justify-center items-center text-center relative overflow-hidden group transition-all duration-300 shadow-xl">
             <div class="space-y-4 w-full my-auto">
-              <span id={item.id} class="stat-number text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-brand-text font-mono block">
+              <span id={item.id} class="stat-number text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-brand-text font-mono block leading-none py-1">
                 {item.number}
               </span>
-              <p class="text-sm sm:text-base md:text-lg text-brand-text/85 font-normal leading-relaxed">
+              <p class="text-sm sm:text-base md:text-lg text-brand-text/85 font-normal leading-[1.6]">
                 {item.label}
               </p>
               <div class="pt-1">
-                <span class="inline-block px-3.5 py-1.5 text-xs font-mono font-medium text-brand-tertiary bg-brand-surface/80 border border-brand-text/25">
+                <span class="inline-block px-3.5 py-1.5 text-xs font-mono font-medium text-brand-tertiary bg-brand-surface/80 border border-brand-text/25 tracking-wide leading-none">
                   {item.source}
                 </span>
               </div>

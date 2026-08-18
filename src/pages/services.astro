@@ -178,13 +178,13 @@ const coreOutcomes = [
         <!-- Left Text Content -->
         <div class="w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-center space-y-4 sm:space-y-6 relative h-full">
           <h1
-            class="services-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-tight"
+            class="services-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-[1.1] sm:leading-[1.08]"
           >
             <span class="block text-brand-text">Enterprise</span>
             <span class="block text-brand-tertiary">Services</span>
           </h1>
           <p
-            class="services-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-2"
+            class="services-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/85 font-normal leading-[1.65] max-w-2xl pt-2"
           >
             Three pillars. One outcome: AI you can defend in front of a regulator. Advisory sets the direction, Training carries your people, and Core Development builds the thing.
           </p>
@@ -254,17 +254,17 @@ const coreOutcomes = [
         {
           pillars.map((p) => (
             <div class="pillar-card p-8 sm:p-10 lg:p-14 space-y-4 bg-brand-bg hover:bg-brand-surface/20 transition-colors relative">
-              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-text">
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-text leading-snug tracking-tight">
                 {p.title}
               </h3>
-              <p class="text-base sm:text-lg lg:text-xl font-semibold text-brand-tertiary">
+              <p class="text-base sm:text-lg lg:text-xl font-semibold text-brand-tertiary leading-snug tracking-wide">
                 {p.subtitle}
               </p>
-              <p class="text-base sm:text-lg text-brand-text/85 leading-relaxed">
+              <p class="text-base sm:text-lg text-brand-text/85 leading-[1.65]">
                 {p.description}
               </p>
               <div class="pt-2">
-                <span class="text-xs uppercase tracking-widest text-brand-tertiary font-mono font-medium">
+                <span class="text-xs uppercase tracking-widest text-brand-tertiary font-mono font-medium leading-none">
                   {p.tag}
                 </span>
               </div>
@@ -278,11 +278,11 @@ const coreOutcomes = [
     <section id="core-dev-section" class="relative w-full scroll-mt-[calc(var(--nav-h,5rem)+1rem)]">
       <div class="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20 pb-10 border-b border-brand-text/25">
         <div class="max-w-4xl space-y-3">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.12] sm:leading-[1.08]">
             <span class="block text-brand-text">Core Development</span>
             <span class="block text-brand-tertiary">Grouped by Outcome</span>
           </h2>
-          <p class="text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-relaxed max-w-2xl pt-1">
+          <p class="text-base sm:text-lg md:text-xl text-brand-text/85 font-normal leading-[1.6] max-w-2xl pt-1">
             Production-grade intelligence deployed directly into your architecture.
           </p>
         </div>
@@ -295,10 +295,10 @@ const coreOutcomes = [
             <!-- Left Sticky Category Column -->
             <div class="w-full lg:w-[32%] xl:w-[30%] p-8 sm:p-10 lg:p-14 border-b lg:border-b-0 shrink-0 flex flex-col justify-start relative bg-brand-bg">
               <div class="lg:sticky lg:top-[calc(var(--nav-h,5rem)+1rem)] space-y-4">
-                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-text">
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.12] text-brand-text">
                   {outcome.category}
                 </h3>
-                <p class="text-lg sm:text-xl text-brand-tertiary font-semibold leading-relaxed">
+                <p class="text-lg sm:text-xl text-brand-tertiary font-semibold leading-snug tracking-wide">
                   {outcome.goal}
                 </p>
               </div>
@@ -315,21 +315,21 @@ const coreOutcomes = [
                     <!-- Text Content & Tags -->
                     <div class="w-full lg:w-[60%] xl:w-[62%] space-y-6">
                       <div class="space-y-2.5">
-                        <h4 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-text">
+                        <h4 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-snug text-brand-text">
                           {svc.title}
                         </h4>
-                        <p class="text-lg sm:text-xl font-semibold text-brand-tertiary">
+                        <p class="text-lg sm:text-xl font-semibold text-brand-tertiary leading-snug tracking-wide">
                           {svc.subtitle}
                         </p>
                       </div>
 
-                      <p class="text-base sm:text-lg lg:text-xl text-brand-text/85 leading-relaxed">
+                      <p class="text-base sm:text-lg lg:text-xl text-brand-text/85 leading-[1.65]">
                         {svc.description}
                       </p>
 
                       <div class="flex flex-wrap gap-2.5 pt-2">
                         {svc.tags.map((tag) => (
-                          <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25 rounded-none">
+                          <span class="px-3.5 py-1.5 text-xs sm:text-sm font-mono font-medium text-brand-tertiary bg-brand-surface/60 border border-brand-text/25 rounded-none tracking-wide leading-none">
                             {tag}
                           </span>
                         ))}
