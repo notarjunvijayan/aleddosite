@@ -3,21 +3,33 @@ interface Props {
   text: string;
   href?: string;
   class?: string;
+  size?: "sm" | "md" | "lg";
 }
 
-const { text, href = "#", class: className = "" } = Astro.props;
+const { text, href = "#", class: className = "", size = "md" } = Astro.props;
+
+// Size variations with guaranteed minimum 44px touch target height (WCAG 2.1 AA)
+const sizeClasses = {
+  sm: "px-5 py-3 text-xs sm:text-sm min-h-[44px]",
+  md: "px-6 py-3.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm md:text-base min-h-[48px]",
+  lg: "px-7 py-4 sm:px-8 sm:py-4 text-sm sm:text-base md:text-lg min-h-[52px]",
+};
+
+const paddingAndFont = sizeClasses[size] || sizeClasses.md;
 ---
 
 <a
   href={href}
-  class={`inline-flex items-center justify-between px-6 py-3.5 sm:px-8 sm:py-4 md:px-9 md:py-4.5 bg-brand-tertiary text-brand-bg font-semibold text-sm sm:text-base md:text-lg lg:text-xl tracking-wide hover:bg-brand-muted transition-all duration-300 group shadow-lg ${className}`}
+  class={`inline-flex items-center justify-between bg-brand-tertiary text-brand-bg font-semibold tracking-wide hover:bg-brand-muted focus-visible:outline-2 focus-visible:outline-brand-tertiary focus-visible:outline-offset-4 focus-visible:ring-2 focus-visible:ring-brand-tertiary transition-all duration-300 group shadow-md ${paddingAndFont} ${className}`}
 >
-  <span class="mr-4 sm:mr-6 md:mr-8 font-semibold leading-none">{text}</span>
+  <span class="mr-3 sm:mr-4 md:mr-5 font-semibold leading-none">{text}</span>
   <svg
-    class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 stroke-current transition-transform duration-300 group-hover:translate-x-2"
+    class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 shrink-0 stroke-current transition-transform duration-300 group-hover:translate-x-1.5"
     fill="none"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       stroke-linecap="round"

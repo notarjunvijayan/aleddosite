@@ -33,6 +33,12 @@ const currentPath = pathname.replace(/\/$/, "") || "/";
         Services
       </a>
       <a
+        href="/ai-studio"
+        class={`py-1 transition-colors tracking-wide leading-none ${currentPath === "/ai-studio" ? "text-white font-semibold underline underline-offset-8 decoration-2 decoration-white" : "text-brand-text/75 hover:text-white"}`}
+      >
+        AI Studio
+      </a>
+      <a
         href="/about"
         class={`py-1 transition-colors tracking-wide leading-none ${currentPath === "/about" ? "text-white font-semibold underline underline-offset-8 decoration-2 decoration-white" : "text-brand-text/75 hover:text-white"}`}
       >
@@ -135,6 +141,12 @@ const currentPath = pathname.replace(/\/$/, "") || "/";
       class={`mobile-nav-link text-4xl sm:text-5xl font-semibold tracking-tight leading-tight transition-colors w-fit ${currentPath === "/services" ? "text-white underline underline-offset-8 decoration-2 decoration-white font-bold" : "text-brand-text/85 hover:text-white"}`}
     >
       Services
+    </a>
+    <a
+      href="/ai-studio"
+      class={`mobile-nav-link text-4xl sm:text-5xl font-semibold tracking-tight leading-tight transition-colors w-fit ${currentPath === "/ai-studio" ? "text-white underline underline-offset-8 decoration-2 decoration-white font-bold" : "text-brand-text/85 hover:text-white"}`}
+    >
+      AI Studio
     </a>
     <a
       href="/about"

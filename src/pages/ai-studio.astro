@@ -1,0 +1,492 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import CtaSection from "../components/CtaSection.astro";
+import SolutionButton from "../components/SolutionButton.astro";
+
+// Deployment Models Data
+const deploymentModels = [
+  {
+    title: "Aleddo Cloud",
+    description: "Fastest to stand up. UAE-based hosting, managed updates and monitoring by our team.",
+  },
+  {
+    title: "Your environment",
+    description: "Runs entirely inside your perimeter. No conversation or record leaves your network.",
+  },
+  {
+    title: "GovCloud",
+    description: "For public-sector entities bound to national infrastructure.",
+  },
+  {
+    title: "Hybrid",
+    description: "Sensitive data stays in-house; non-sensitive processing runs managed.",
+  },
+];
+
+// 3-Tier Pricing Model
+const pricingTiers = [
+  {
+    name: "Pilot / Single Skill",
+    badge: "Per Skill Model",
+    price: "$1,499",
+    period: "/ month",
+    description: "You buy the specific capabilities the role needs, not a bundled seat of everything.",
+    features: [
+      "1 Core Digital Employee Skill",
+      "Up to 2,500 automated task executions / mo",
+      "Aleddo Cloud or Private Sandbox",
+      "Human-in-the-loop review queue",
+      "Audit log & telemetry dashboard",
+    ],
+  },
+  {
+    name: "Role Specialist",
+    badge: "Per Seat Model",
+    price: "$3,999",
+    period: "/ month",
+    description: "For roles where a Digital Employee maps one-to-one onto a position in your org chart.",
+    features: [
+      "Full Role Catalog (Up to 5 active skills)",
+      "10,000 automated task executions / mo",
+      "Deployment in Your Environment or Aleddo Cloud",
+      "Custom ERP, CRM, Slack & HRIS connectors",
+      "NIST AI RMF compliance logging & action traces",
+      "Dedicated success engineer & quarterly tuning",
+    ],
+  },
+  {
+    name: "GovCloud & Enterprise",
+    badge: "Per Usage Model",
+    price: "Custom",
+    period: "tailored scope",
+    description: "For spiky, volume-driven workloads where a fixed seat would be the wrong shape.",
+    features: [
+      "Unlimited skills & multi-role orchestration",
+      "Dedicated GovCloud, Hybrid, or Air-gapped VPC",
+      "Custom ML fine-tuning & domain adaptation",
+      "Enterprise SLA with 24/7 dedicated support",
+      "Full data residency certification & audit support",
+    ],
+  },
+];
+
+// Structured JSON-LD Schema for Software Application & AI Studio Product
+const schemaJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Aleddo Digital Employees",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Aleddo Cloud, Private VPC, GovCloud, Hybrid",
+  "description": "AI colleagues built to run complete organizational roles across HR, Finance, Sales, and Operations.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aleddo Technologies",
+    "url": "https://aleddotechnologies.com"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "1499",
+    "highPrice": "3999",
+    "offerCount": "3"
+  }
+});
+---
+
+<Layout
+  title="AI Studio & Digital Employees | Aleddo Technologies"
+  description="Aleddo AI Studio packages hardened client delivery patterns into Digital Employees — AI colleagues built to run whole roles across HR, Finance, Sales, and Operations."
+>
+  <!-- SEO JSON-LD Structured Data Injection -->
+  <script type="application/ld+json" is:inline set:html={schemaJsonLd} />
+
+  <!-- Accessible Skip Link for Screen Reader & Keyboard Navigation -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-brand-tertiary focus:text-brand-bg focus:top-4 focus:left-4 font-bold rounded-none shadow-xl outline-none ring-2 ring-brand-bg"
+  >
+    Skip to main content
+  </a>
+
+  <Navbar />
+
+  <main id="main-content" tabIndex={-1} role="main" class="flex-1 w-full bg-brand-bg text-brand-text overflow-hidden focus:outline-none">
+    <!-- ==================== HERO HEADER SECTION ==================== -->
+    <section 
+      id="studio-hero-section" 
+      aria-label="AI Studio Overview"
+      class="relative z-10 w-full border-b border-brand-text/30 overflow-hidden flex flex-col py-10 lg:py-0 min-h-0 lg:h-[calc(100dvh-var(--nav-h,5rem))] bg-brand-bg"
+    >
+      <div class="w-full h-full flex-1 flex flex-col lg:flex-row items-stretch relative">
+        <!-- Full-Height Vertical Divider (Desktop) -->
+        <div class="services-line-v absolute top-0 bottom-0 left-[58%] w-px bg-brand-text/30 hidden lg:block origin-top z-10" aria-hidden="true"></div>
+
+        <!-- Left Text Content -->
+        <div class="w-full lg:w-[58%] px-5 sm:px-10 lg:px-14 xl:px-16 py-8 sm:py-12 flex flex-col justify-center space-y-5 sm:space-y-6 relative h-full">
+          <h1 class="services-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-[1.12] sm:leading-[1.08]">
+            <span class="block text-brand-text">AI Studio: where our delivery work</span>
+            <span class="block text-brand-tertiary">becomes a product.</span>
+          </h1>
+
+          <p class="services-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-brand-text/90 font-normal leading-[1.6] sm:leading-[1.65] max-w-2xl pt-1">
+            Patterns we build repeatedly for clients get hardened, governed and packaged here. The flagship is Digital Employees.
+          </p>
+
+          <div class="pt-3 flex flex-wrap gap-4 items-center">
+            <SolutionButton text="Request Early Access" href="/contact" size="md" />
+          </div>
+
+          <!-- Desktop Bottom-Right Scroll Indicator -->
+          <div class="hidden lg:flex absolute right-6 lg:right-10 bottom-6 lg:bottom-8 z-20 pointer-events-auto">
+            <a
+              href="#digital-employees-section"
+              class="scroll-indicator-target flex items-center justify-center text-brand-text/80 hover:text-brand-text transition-colors duration-300 group cursor-pointer focus-visible:outline-2 focus-visible:outline-brand-tertiary focus-visible:outline-offset-4"
+              aria-label="Scroll to Digital Employees section"
+            >
+              <div class="relative w-32 h-32 xl:w-36 xl:h-36 flex items-center justify-center">
+                <svg viewBox="0 0 140 140" class="w-full h-auto animate-[spin_14s_linear_infinite]" aria-hidden="true" focusable="false">
+                  <path id="scrollTextPathStudio" d="M 70,70 m -48,0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0" fill="none"></path>
+                  <text class="text-[13px] font-semibold tracking-[0.2em] uppercase fill-current font-sans">
+                    <textPath href="#scrollTextPathStudio" startOffset="0%">
+                      SCROLL TO SEE MORE • SCROLL TO SEE MORE •
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <svg class="w-5 h-5 xl:w-6 xl:h-6 text-brand-text stroke-current transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"></path>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side Graphic Frame -->
+        <div class="hidden lg:flex w-full lg:w-[42%] relative overflow-hidden items-center justify-center p-6 sm:p-10 lg:p-14 xl:p-16 bg-brand-bg">
+          <div class="relative w-full h-full max-h-[88%] border border-brand-text/30 overflow-hidden shadow-2xl">
+            <img
+              src="/images/service_agentic_ai.webp"
+              alt="Aleddo AI Studio Digital Employees Architecture Graphic"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              width="600"
+              height="600"
+              class="services-hero-image w-full h-full object-cover object-center"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DIGITAL EMPLOYEES SECTION (FLAGSHIP) ==================== -->
+    <section 
+      id="digital-employees-section" 
+      aria-labelledby="digital-emp-heading"
+      class="relative w-full border-b border-brand-text/30 scroll-mt-[calc(var(--nav-h,5rem)+1rem)] bg-brand-bg animate-section"
+    >
+      <!-- Section Header -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pt-10 sm:pt-14 lg:pt-16 pb-8 space-y-3 sm:space-y-4">
+        <span class="text-xs uppercase tracking-widest text-brand-text/70 font-mono font-bold block">
+          Digital Employees
+        </span>
+
+        <h2 id="digital-emp-heading" class="sec-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.15] sm:leading-[1.12]">
+          AI colleagues built to run a whole role.
+        </h2>
+
+        <p class="text-sm sm:text-lg md:text-xl lg:text-2xl text-brand-text/90 max-w-4xl leading-[1.6]">
+          Most agent tools automate a task. A Digital Employee is scoped around a role — HR, finance, sales, operations — and is sold as a catalog of skills you switch on as trust builds.
+        </p>
+      </div>
+
+      <!-- 4 Deployment Cards Grid -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pb-10 sm:pb-14 lg:pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {deploymentModels.map((model) => (
+            <article class="sec-card p-6 sm:p-8 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 space-y-3 flex flex-col justify-between group shadow-sm hover:shadow-lg">
+              <div class="space-y-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-brand-text leading-snug tracking-tight group-hover:text-brand-tertiary transition-colors">
+                  {model.title}
+                </h3>
+
+                <p class="text-sm sm:text-base text-brand-text/90 leading-[1.6]">
+                  {model.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COMMERCIAL SHAPE & PRICING ==================== -->
+    <section 
+      id="commercial-shape-section" 
+      aria-labelledby="commercial-shape-heading"
+      class="relative w-full border-b border-brand-text/30 scroll-mt-[calc(var(--nav-h,5rem)+1rem)] bg-brand-bg animate-section"
+    >
+      <!-- Section Header -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pt-10 sm:pt-14 lg:pt-16 pb-8 space-y-2.5 sm:space-y-3">
+        <h2 id="commercial-shape-heading" class="sec-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.15] sm:leading-[1.12]">
+          <span class="block text-brand-text">Commercial shape</span>
+          <span class="block text-brand-tertiary">How it is priced</span>
+        </h2>
+        <p class="text-sm sm:text-lg md:text-xl lg:text-2xl text-brand-text/90 max-w-4xl leading-[1.6]">
+          We structure pricing around how value is captured in your org chart and workflow architecture.
+        </p>
+      </div>
+
+      <!-- 3 Pricing Axes Normal Cards Grid -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pb-10 sm:pb-14 border-b border-brand-text/30">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div class="sec-card p-6 sm:p-8 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 space-y-3 group">
+            <h3 class="text-xl sm:text-2xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">Per skill</h3>
+            <p class="text-sm sm:text-base text-brand-text/90 leading-relaxed">
+              You buy the specific capabilities the role needs, not a bundled seat of everything.
+            </p>
+          </div>
+
+          <div class="sec-card p-6 sm:p-8 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 space-y-3 group">
+            <h3 class="text-xl sm:text-2xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">Per seat</h3>
+            <p class="text-sm sm:text-base text-brand-text/90 leading-relaxed">
+              For roles where a Digital Employee maps one-to-one onto a position in your org chart.
+            </p>
+          </div>
+
+          <div class="sec-card p-6 sm:p-8 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 space-y-3 group">
+            <h3 class="text-xl sm:text-2xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">Per usage</h3>
+            <p class="text-sm sm:text-base text-brand-text/90 leading-relaxed">
+              For spiky, volume-driven workloads where a fixed seat would be the wrong shape.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Published Price Points Cards Grid -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 py-10 sm:py-14 lg:py-16 bg-brand-bg space-y-6 sm:space-y-8">
+        <div class="border-b border-brand-text/20 pb-4">
+          <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-text">Published Early Access Price Points</h3>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          {pricingTiers.map((tier) => (
+            <article class="sec-card p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6 transition-all duration-300 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 group shadow-sm hover:shadow-lg">
+              <div class="space-y-5">
+                <div class="space-y-2">
+                  <span class="text-xs uppercase font-bold tracking-wider text-brand-tertiary font-mono block">
+                    {tier.badge}
+                  </span>
+                  <h4 class="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">{tier.name}</h4>
+                  <p class="text-xs sm:text-sm text-brand-text/80">{tier.description}</p>
+                </div>
+
+                <div class="space-y-1 border-y border-brand-text/20 py-3.5">
+                  <div class="flex items-baseline space-x-2">
+                    <span class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-text">{tier.price}</span>
+                    <span class="text-sm text-brand-text/70 font-medium">{tier.period}</span>
+                  </div>
+                  <span class="text-xs text-brand-text/60 block">Excluding local taxes & cloud infra</span>
+                </div>
+
+                <div class="space-y-2.5">
+                  <span class="text-xs uppercase tracking-widest text-brand-text/70 font-mono font-bold block">
+                    Included Capabilities
+                  </span>
+                  <ul class="space-y-2">
+                    {tier.features.map((feat) => (
+                      <li class="flex items-start text-xs sm:text-sm text-brand-text/90">
+                        <span class="text-brand-tertiary mr-2 font-bold" aria-hidden="true">&bull;</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <SolutionButton text={tier.name.includes("GovCloud") ? "Book a Discovery Call" : "Request Early Access"} href="/contact" size="sm" />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TWO DIFFERENT CONVERSATIONS ==================== -->
+    <section 
+      id="two-conversations-section" 
+      aria-labelledby="two-conv-heading"
+      class="relative w-full border-b border-brand-text/30 scroll-mt-[calc(var(--nav-h,5rem)+1rem)] bg-brand-bg animate-section"
+    >
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pt-10 sm:pt-14 lg:pt-16 pb-8 space-y-2.5 sm:space-y-3">
+        <h2 id="two-conv-heading" class="sec-heading text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.15] sm:leading-[1.12]">
+          <span class="block text-brand-text">Two different</span>
+          <span class="block text-brand-tertiary">conversations</span>
+        </h2>
+        <p class="text-sm sm:text-lg md:text-xl lg:text-2xl text-brand-text/90 max-w-4xl leading-[1.6]">
+          A discovery call is for scoping a build around your environment. Early access is for evaluating Digital Employees against a role you already have. They run separately, on purpose.
+        </p>
+      </div>
+
+      <!-- 2 Options Normal Cards Grid -->
+      <div class="px-5 sm:px-10 lg:px-14 xl:px-16 pb-10 sm:pb-14 lg:pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Option A: Early Access -->
+          <article class="sec-card p-6 sm:p-8 lg:p-10 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 flex flex-col justify-between space-y-6 group shadow-sm hover:shadow-lg">
+            <div class="space-y-3">
+              <span class="text-xs uppercase tracking-widest text-brand-tertiary font-mono font-bold">
+                Option 01
+              </span>
+              <h3 class="text-xl sm:text-3xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">
+                Request Early Access
+              </h3>
+              <p class="text-sm sm:text-base text-brand-text/90 leading-relaxed">
+                Evaluate Digital Employees against an existing role in your organization. Test skills, review action logs, and validate performance.
+              </p>
+            </div>
+
+            <div class="pt-3">
+              <SolutionButton text="Request Early Access" href="/contact" size="md" />
+            </div>
+          </article>
+
+          <!-- Option B: Custom Build -->
+          <article class="sec-card p-6 sm:p-8 lg:p-10 bg-brand-bg border border-brand-text/30 hover:border-brand-tertiary/60 transition-all duration-300 flex flex-col justify-between space-y-6 group shadow-sm hover:shadow-lg">
+            <div class="space-y-3">
+              <span class="text-xs uppercase tracking-widest text-brand-text/70 font-mono font-bold">
+                Option 02
+              </span>
+              <h3 class="text-xl sm:text-3xl font-bold text-brand-text group-hover:text-brand-tertiary transition-colors">
+                I need something built instead
+              </h3>
+              <p class="text-sm sm:text-base text-brand-text/90 leading-relaxed">
+                Have specific software requirements, specialized data pipelines, or need a custom AI application built inside your perimeter?
+              </p>
+            </div>
+
+            <div class="pt-3">
+              <SolutionButton text="Book a Discovery Call" href="/contact" size="md" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global CTA Banner -->
+    <CtaSection />
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initStudioAnimations = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // 1. Hero Entrance Animations (matching services.astro)
+    const heroTitle = document.querySelector(".services-title");
+    const heroSubtitle = document.querySelector(".services-subtitle");
+    const heroLineV = document.querySelector(".services-line-v");
+    const heroImage = document.querySelector(".services-hero-image");
+    const scrollIndicator = document.querySelector(".scroll-indicator-target");
+
+    if (heroLineV) gsap.set(heroLineV, { scaleY: 0, transformOrigin: "top center" });
+    if (heroTitle) gsap.set(heroTitle, { y: 25, opacity: 0 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { y: 20, opacity: 0 });
+    if (heroImage) gsap.set(heroImage, { opacity: 0 });
+    if (scrollIndicator) gsap.set(scrollIndicator, { scale: 0.8, opacity: 0 });
+
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    if (heroLineV) heroTl.to(heroLineV, { scaleY: 1, duration: 0.5 });
+    if (heroTitle) heroTl.to(heroTitle, { y: 0, opacity: 1, duration: 0.45 }, "-=0.35");
+    if (heroSubtitle) heroTl.to(heroSubtitle, { y: 0, opacity: 1, duration: 0.4 }, "-=0.35");
+    if (heroImage) heroTl.to(heroImage, { opacity: 1, duration: 0.45 }, "-=0.35");
+    if (scrollIndicator) heroTl.to(scrollIndicator, { scale: 1, opacity: 1, duration: 0.4 }, "-=0.35");
+
+    // Magnetic mouse cursor interaction for scroll indicator
+    const heroContainer = document.getElementById("studio-hero-section");
+    const scrollIndicators = document.querySelectorAll(".scroll-indicator-target");
+    if (heroContainer && scrollIndicators.length) {
+      heroContainer.addEventListener("mousemove", (e) => {
+        scrollIndicators.forEach((indicator) => {
+          const rect = indicator.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const deltaX = (e.clientX - centerX) * 0.06;
+          const deltaY = (e.clientY - centerY) * 0.06;
+
+          const maxOffset = 14;
+          const clampedX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+          const clampedY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+
+          gsap.to(indicator, {
+            x: clampedX,
+            y: clampedY,
+            duration: 0.6,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        });
+      });
+
+      heroContainer.addEventListener("mouseleave", () => {
+        scrollIndicators.forEach((indicator) => {
+          gsap.to(indicator, {
+            x: 0,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        });
+      });
+    }
+
+    // 2. Section ScrollTrigger Entrance Animations (matching services.astro 1-to-1)
+    const animSections = document.querySelectorAll(".animate-section");
+    animSections.forEach((sec) => {
+      const heading = sec.querySelector(".sec-heading");
+      const cards = sec.querySelectorAll(".sec-card");
+
+      if (heading) gsap.set(heading, { y: 25, opacity: 0 });
+      if (cards.length) gsap.set(cards, { y: 30, opacity: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sec,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        defaults: { ease: "power4.out" },
+      });
+
+      if (heading) {
+        tl.to(heading, { y: 0, opacity: 1, duration: 0.45 });
+      }
+
+      if (cards.length) {
+        tl.to(cards, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08 }, heading ? "-=0.3" : 0);
+      }
+    });
+
+    ScrollTrigger.refresh();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initStudioAnimations);
+  } else {
+    initStudioAnimations();
+  }
+  document.addEventListener("astro:page-load", initStudioAnimations);
+</script>
